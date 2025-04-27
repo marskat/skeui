@@ -273,6 +273,7 @@ export type GlassPanelProps = React.ComponentProps<"div"> & {
   className?: string;
   overallClassName?: string;
   children?: React.ReactNode;
+  neumorphic?: boolean;
 };
 
 export const GlassPanel = ({
@@ -280,6 +281,7 @@ export const GlassPanel = ({
   className,
   overallClassName,
   children,
+  neumorphic = false,
   ...props
 }: GlassPanelProps) => {
   const roundedClasses = getRoundedClasses(rounded);
@@ -287,29 +289,43 @@ export const GlassPanel = ({
 
   return (
     <div className={cn("ui", overallClassName)} {...props}>
-      <div
-        className={cn(
-          "before:ui-nm-outside-highlight before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative",
-          beforeRoundedClasses
-        )}
-      >
+      {neumorphic && (
         <div
           className={cn(
-            "before:ui-nm-outside-shadow before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative",
+            "before:ui-nm-outside-highlight before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative",
             beforeRoundedClasses
           )}
         >
           <div
             className={cn(
-              "ui-backdrop-blur-2xl ui-soft-transition ui-gp-inside-shadow ui-size-full ui-relative ui-overflow-clip",
-              roundedClasses,
-              className
+              "before:ui-nm-outside-shadow before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative",
+              beforeRoundedClasses
             )}
           >
-            {children}
+            <div
+              className={cn(
+                "ui-backdrop-blur-2xl ui-soft-transition ui-gp-inside-shadow ui-size-full ui-relative ui-overflow-clip",
+                roundedClasses,
+                className
+              )}
+            >
+              {children}
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {!neumorphic && (
+        <div
+          className={cn(
+            "ui-backdrop-blur-2xl ui-soft-transition ui-gp-inside-shadow ui-size-full ui-relative ui-overflow-clip",
+            roundedClasses,
+            className
+          )}
+        >
+          {children}
+        </div>
+      )}
     </div>
   );
 };

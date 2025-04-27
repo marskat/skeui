@@ -30,7 +30,7 @@ export const NavBar = ({
       <div className="ui">
         <div
           className={cn(
-            "ui-fixed ui-z-50 ui-flex ui-place-content-center",
+            "ui-fixed ui-z-50 ui-flex ui-place-content-center ui-w-fit",
             {
               "ui-w-full ui-bottom-[10%] ui-place-content-center":
                 placement === "bottom",

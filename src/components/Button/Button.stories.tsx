@@ -5,8 +5,7 @@ const meta = {
   component: Button,
   argTypes: {},
   args: {
-    // rounded: "r-full", // default value
-    // children: "GlassPanel content",
+    neumorphic: true,
   },
 } satisfies Meta<typeof Button>;
 
@@ -17,5 +16,6 @@ export const Primary: Story = {
   args: {
     children: <div>button</div>,
     className: "ui-p-3",
+    neumorphic: true,
   },
 };

@@ -22,9 +22,10 @@ export type Slide = {
 
 export type CarouselProps = {
   slides: Slide[];
+  neumorphic?: boolean;
 };
 
-export const Carousel = ({ slides }: CarouselProps) => {
+export const Carousel = ({ slides, neumorphic = false }: CarouselProps) => {
   const [visibleProject, setVisibleProject] = useState(0);
   const [playExitAnimation, setPlayExitAnimation] = useState(false);
   const [isRightSwipe, setIsRightSwipe] = useState(false);
@@ -61,6 +62,7 @@ export const Carousel = ({ slides }: CarouselProps) => {
             isRightSwipe={isRightSwipe}
             setIsRightSwipe={setIsRightSwipe}
             isDesktop={useIsDesktop()}
+            neumorphic={neumorphic}
           />
         </div>
         <Button
@@ -87,6 +89,7 @@ type CarouselSlideProps = {
   setIsRightSwipe: Dispatch<SetStateAction<boolean>>;
   isDesktop: boolean;
   slides: Slide[];
+  neumorphic?: boolean;
 };
 
 export const CarouselSlide = ({
@@ -98,6 +101,7 @@ export const CarouselSlide = ({
   setIsRightSwipe,
   isDesktop,
   slides,
+  neumorphic = false,
 }: CarouselSlideProps) => {
   const handleClick = (url: string) => {
     window.open(url, "_blank")?.focus();
@@ -135,7 +139,11 @@ export const CarouselSlide = ({
   return (
     <div className="ui-flex ui-flex-col ui-justify-center">
       <div className="ui-flex ui-justify-center">
-        <GlassPanel rounded={["t-lg", "b-lg"]} overallClassName="ui-size-fit">
+        <GlassPanel
+          rounded={["t-lg", "b-lg"]}
+          overallClassName="ui-size-fit"
+          neumorphic={neumorphic}
+        >
           <div className="ui-size-fit">
             <div
               className="ui-p-3 ui-rounded-lg ui-overflow-clip ui-relative ui-h-[80svh] ui-w-[80svw] sm:ui-size-fit"

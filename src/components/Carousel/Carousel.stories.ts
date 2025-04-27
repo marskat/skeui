@@ -25,7 +25,7 @@ const demoSlides: Slide[] = [
 const meta = {
   component: Carousel,
   argTypes: {},
-  args: {},
+  args: { neumorphic: true },
 } satisfies Meta<typeof Carousel>;
 
 export default meta;

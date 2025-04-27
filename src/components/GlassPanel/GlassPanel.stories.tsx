@@ -31,8 +31,7 @@ const meta = {
   },
   args: {
     rounded: "b-full", // default value
-    // rounded: "r-full", // default value
-    // children: "GlassPanel content",
+    neumorphic: true,
   },
 } satisfies Meta<typeof GlassPanel>;
 
@@ -42,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     children: (
-      <div>
+      <div className="h-full">
         <div className="ui-text-2xl">glass panel</div>
         <div className="ui-text-md">
           styles can be overridden with className, but glamo comes with tasteful
@@ -52,6 +51,7 @@ export const Primary: Story = {
     ),
     className: "ui-bg-[#effbf9]/20 ui-text-black ui-p-8 ui-text-center",
     rounded: ["b-full", "t-full"],
+    neumorphic: true,
   },
 };
 export const Secondary: Story = {
@@ -71,5 +71,6 @@ export const Secondary: Story = {
     ),
     className: "ui-bg-[#effbf9]/20 ui-text-black ui-p-8 ui-text-center",
     rounded: ["b-full", "t-full"],
+    neumorphic: true,
   },
 };
