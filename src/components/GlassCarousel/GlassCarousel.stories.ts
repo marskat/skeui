@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Carousel, Slide } from "./Carousel";
+import { GlassCarousel, Slide } from "./GlassCarousel";
 
 const demoSlides: Slide[] = [
   {
@@ -23,10 +23,10 @@ const demoSlides: Slide[] = [
 ];
 
 const meta = {
-  component: Carousel,
+  component: GlassCarousel,
   argTypes: {},
   args: { neumorphic: true },
-} satisfies Meta<typeof Carousel>;
+} satisfies Meta<typeof GlassCarousel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

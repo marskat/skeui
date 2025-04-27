@@ -5,15 +5,15 @@ import {
   HiOutlineNewspaper,
   HiOutlineUser,
 } from "react-icons/hi2";
-import { NavBar } from "./NavBar";
+import { GlassNavBar } from "./GlassNavBar";
 
 const meta = {
-  component: NavBar,
+  component: GlassNavBar,
   argTypes: {},
   args: {
     placement: "bottom",
   },
-} satisfies Meta<typeof NavBar>;
+} satisfies Meta<typeof GlassNavBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

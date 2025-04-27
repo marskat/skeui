@@ -1,5 +1,4 @@
 "use client";
-// import { timeout } from "@/app/lib/util";
 import { Dispatch, SetStateAction, useState } from "react";
 import {
   HiArrowTopRightOnSquare,
@@ -8,9 +7,8 @@ import {
 } from "react-icons/hi2";
 import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
-import { Button } from "../Button";
+import { GlassButton } from "../GlassButton";
 import { GlassPanel } from "../GlassPanel";
-// import { slides } from "../app/personalProjects";
 
 export type Slide = {
   title: string;
@@ -20,12 +18,15 @@ export type Slide = {
   mobilePreviewImage?: string;
 };
 
-export type CarouselProps = {
+export type GlassCarouselProps = {
   slides: Slide[];
   neumorphic?: boolean;
 };
 
-export const Carousel = ({ slides, neumorphic = false }: CarouselProps) => {
+export const GlassCarousel = ({
+  slides,
+  neumorphic = false,
+}: GlassCarouselProps) => {
   const [visibleProject, setVisibleProject] = useState(0);
   const [playExitAnimation, setPlayExitAnimation] = useState(false);
   const [isRightSwipe, setIsRightSwipe] = useState(false);
@@ -40,7 +41,7 @@ export const Carousel = ({ slides, neumorphic = false }: CarouselProps) => {
   return (
     <div className="ui">
       <div className="ui-flex ui-justify-center ui-place-items-center ui-size-fit">
-        <Button
+        <GlassButton
           title="previous slide"
           className="ui-p-3"
           onClick={() => {
@@ -51,7 +52,7 @@ export const Carousel = ({ slides, neumorphic = false }: CarouselProps) => {
           }}
         >
           <HiOutlineChevronLeft />
-        </Button>
+        </GlassButton>
         <div className="ui-w-fit">
           <CarouselSlide
             slides={slides}
@@ -65,7 +66,7 @@ export const Carousel = ({ slides, neumorphic = false }: CarouselProps) => {
             neumorphic={neumorphic}
           />
         </div>
-        <Button
+        <GlassButton
           title="next slide"
           className="ui-p-3"
           onClick={() => {
@@ -74,7 +75,7 @@ export const Carousel = ({ slides, neumorphic = false }: CarouselProps) => {
           }}
         >
           <HiOutlineChevronRight />
-        </Button>
+        </GlassButton>
       </div>
     </div>
   );

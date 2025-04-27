@@ -1,13 +1,13 @@
 import { useIsButtonActive } from "../../hooks/useIsButtonActive";
 import { GlassPanel } from "../GlassPanel/GlassPanel";
-export type ButtonProps = React.ComponentProps<"button"> & {
+export type GlassButtonProps = React.ComponentProps<"button"> & {
   neumorphic?: boolean;
 };
-export const Button = ({
+export const GlassButton = ({
   children,
   neumorphic = false,
   ...props
-}: ButtonProps) => {
+}: GlassButtonProps) => {
   const [isActive, eventHandlers] = useIsButtonActive();
   return (
     <div className="ui">

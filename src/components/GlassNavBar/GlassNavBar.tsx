@@ -11,15 +11,15 @@ import { GlassPanel } from "../GlassPanel";
 //   showSettings: boolean;
 //   setShowSettings: Dispatch<SetStateAction<boolean>>;
 // };
-type NavBarProps = React.ComponentProps<"div"> & {
+type GlassNavBarProps = React.ComponentProps<"div"> & {
   placement?: "bottom" | "left" | "top" | "right";
 };
-export const NavBar = ({
+export const GlassNavBar = ({
   children,
   className,
   placement = "bottom",
   ...props
-}: NavBarProps) =>
+}: GlassNavBarProps) =>
   //   setPlayAboutAnimation,
   //   isDarkMode,
   //   setIsDarkMode,
@@ -55,7 +55,7 @@ export const NavBar = ({
             overallClassName="ui-size-fit"
             rounded={["t-full", "b-full"]}
           >
-            <div className="ui-flex ui-p-2 ui-gap-6 ui-border ui-border-text/30">
+            <div className="ui-flex ui-p-2 ui-gap-6">
               <div
                 className={cn(
                   "ui-gap-6 ui-justify-around",

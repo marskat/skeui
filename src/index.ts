@@ -1,5 +1,5 @@
-export { Button } from "./components/Button";
 export { Card } from "./components/card";
-export { Carousel } from "./components/Carousel";
+export { GlassButton } from "./components/GlassButton";
+export { GlassCarousel } from "./components/GlassCarousel";
+export { GlassNavBar } from "./components/GlassNavBar";
 export { GlassPanel } from "./components/GlassPanel";
-export { NavBar } from "./components/NavBar";

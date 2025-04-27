@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Button";
+import { GlassButton } from "./GlassButton";
 
 const meta = {
-  component: Button,
+  component: GlassButton,
   argTypes: {},
   args: {
     neumorphic: true,
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof GlassButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
