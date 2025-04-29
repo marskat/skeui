@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import pseudoElements from "tailwindcss-pseudo-elements";
 export default {
   important: ".ui",
   prefix: "ui-",
@@ -58,13 +57,6 @@ export default {
         rightSwipeEnter: "rightSwipeEnter 0.1s 0.1s linear forwards",
         rightSwipeExit: "rightSwipeExit 0.2s linear forwards",
       },
-    },
-  },
-  plugins: [pseudoElements],
-  variants: {
-    extend: {
-      borderRadius: ["before"],
-      boxShadow: ["before"],
     },
   },
 };
