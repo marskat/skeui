@@ -13,11 +13,13 @@ import { GlassPanel } from "../GlassPanel";
 // };
 type GlassNavBarProps = React.ComponentProps<"div"> & {
   placement?: "bottom" | "left" | "top" | "right";
+  neumorphic?: boolean;
 };
 export const GlassNavBar = ({
   children,
   className,
   placement = "bottom",
+  neumorphic = false,
   ...props
 }: GlassNavBarProps) =>
   //   setPlayAboutAnimation,
@@ -46,19 +48,65 @@ export const GlassNavBar = ({
             {
               "ui-h-full ui-left-[5%] ui-place-items-center":
                 placement === "left",
+            }
+          )}
+          {...props}
+        >
+          <div
+            className={cn(
+              "ui-flex ui-p-2 ui-gap-6 ui-rounded-t-full ui-rounded-b-full",
+              className
+            )}
+          >
+            <div
+              className={cn(
+                "ui-gap-6 ui-justify-around",
+                {
+                  "ui-grid ui-grid-cols-4":
+                    placement === "bottom" || placement === "top",
+                },
+                { "ui-grid": placement === "right" || placement === "left" }
+              )}
+            >
+              {children}
+
+              {/* <Toggle isAltTheme={isDarkMode} setIsAltTheme={setIsDarkMode} /> */}
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={cn(
+            "ui-fixed ui-z-50 ui-flex ui-place-content-center ui-w-fit ui-mix-blend-soft-light",
+            {
+              "ui-w-full ui-bottom-[10%] ui-place-content-center":
+                placement === "bottom",
             },
-            className
+            {
+              "ui-w-full ui-top-[10%] ui-place-content-center":
+                placement === "top",
+            },
+            {
+              "ui-h-full ui-right-[5%] ui-place-items-center":
+                placement === "right",
+            },
+            {
+              "ui-h-full ui-left-[5%] ui-place-items-center":
+                placement === "left",
+            }
+            // className
           )}
           {...props}
         >
           <GlassPanel
             overallClassName="ui-size-fit"
             rounded={["t-full", "b-full"]}
+            neumorphic={neumorphic}
           >
             <div className="ui-flex ui-p-2 ui-gap-6">
               <div
                 className={cn(
-                  "ui-gap-6 ui-justify-around",
+                  "ui-gap-6 ui-justify-around ",
                   {
                     "ui-grid ui-grid-cols-4":
                       placement === "bottom" || placement === "top",

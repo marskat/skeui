@@ -12,55 +12,28 @@ const meta = {
   argTypes: {},
   args: {
     placement: "bottom",
+    neumorphic: true,
   },
 } satisfies Meta<typeof GlassNavBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// const handleClick = (section: string) => {
-//   if (section === "blog") {
-//     // TO DO: enable when blog is ready
-//     // router.push("/blog/");
-//     return;
-//   } else {
-//     (window as Window).location = "#" + section;
-//   }
-//   // setPlayAboutAnimation(true);
-//   // setPlayContactAnimation(true);
-// };
-
 export const Primary: Story = {
   args: {
-    className: "ui-text-slate-500",
+    className: "ui-text-slate-500 ui-bg-slate-200/50",
     children: (
       <>
-        <button
-          className="ui-btn-nav"
-          title="home"
-          //   onClick={() => handleClick("home")}
-        >
+        <button className="ui-btn-nav" title="home">
           <HiOutlineHome />
         </button>
-        <button
-          className="ui-btn-nav"
-          title="about"
-          //   onClick={() => handleClick("about")}
-        >
+        <button className="ui-btn-nav" title="about">
           <HiOutlineUser />
         </button>
-        <button
-          className="btn-nav-disabled"
-          title="feature available soon :)"
-          //   onClick={() => handleClick("blog")}
-        >
+        <button className="ui-btn-nav" title="blog">
           <HiOutlineNewspaper />
         </button>
-        <button
-          className="ui-btn-nav"
-          title="settings"
-          //   onClick={() => setShowSettings(!showSettings)}
-        >
+        <button className="ui-btn-nav" title="settings">
           <HiOutlineCog6Tooth />
         </button>
       </>
