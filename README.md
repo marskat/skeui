@@ -1,7 +1,10 @@
 # Glamo - add some class with some glass!
 
 > [!CAUTION]
-> Glamo is still in beta - it's not quite ready yet! It is **not recommended** that you install it until the official release is ready.
+>
+> ## Glamo is still in beta - it's not quite ready yet! It is **not recommended** that you install it until the official release is ready.
+>
+> ### More documentation will be available when Glamo is officially released. For now, I am just testing and stuff.
 
 ## A React component library for **gla**ss**mo**rphism (and neumorphism)
 
