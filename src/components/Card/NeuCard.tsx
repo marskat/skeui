@@ -1,16 +1,11 @@
 import cn from "classnames";
-export type CardProps = React.ComponentProps<"div"> & {
-  neumorphic?: boolean;
+export type NeuCardProps = React.ComponentProps<"div"> & {
   inset?: boolean;
 };
-export const Card = ({
-  children,
-  neumorphic = false,
-  inset = false,
-}: CardProps) => {
+export const NeuCard = ({ children, inset = false }: NeuCardProps) => {
   return (
     <div className="ui">
-      {neumorphic && !inset && (
+      {!inset && (
         <div
           className={cn(
             "before:ui-nm-outside-highlight before:ui-rounded-t before:ui-rounded-b before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-fit ui-relative"
@@ -31,7 +26,7 @@ export const Card = ({
           </div>
         </div>
       )}
-      {neumorphic && inset && (
+      {inset && (
         <div
           className={cn("ui-size-fit ui-p-2 ui-rounded ui-nm-inside-shadow")}
         >

@@ -13,6 +13,6 @@ type Story = StoryObj<typeof meta>;
 export const Neu: Story = {
   args: {
     children: <div>button</div>,
-    className: "ui-p-3 ui-bg-slate-200 ui-text-black",
+    className: "ui-p-3 ui-text-black",
   },
 };

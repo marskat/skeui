@@ -7,7 +7,6 @@ import {
 } from "react-icons/hi2";
 import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
-import { GlassButton } from "../Button";
 import { GlassPanel } from "../GlassPanel";
 
 export type Slide = {
@@ -41,7 +40,7 @@ export const GlassCarousel = ({
   return (
     <div className="ui">
       <div className="ui-flex ui-justify-center ui-place-items-center ui-size-fit">
-        <GlassButton
+        <button
           title="previous slide"
           className="ui-p-3"
           onClick={() => {
@@ -52,7 +51,7 @@ export const GlassCarousel = ({
           }}
         >
           <HiOutlineChevronLeft />
-        </GlassButton>
+        </button>
         <div className="ui-w-fit">
           <CarouselSlide
             slides={slides}
@@ -66,7 +65,7 @@ export const GlassCarousel = ({
             neumorphic={neumorphic}
           />
         </div>
-        <GlassButton
+        <button
           title="next slide"
           className="ui-p-3"
           onClick={() => {
@@ -75,7 +74,7 @@ export const GlassCarousel = ({
           }}
         >
           <HiOutlineChevronRight />
-        </GlassButton>
+        </button>
       </div>
     </div>
   );

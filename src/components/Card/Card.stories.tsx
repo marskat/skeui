@@ -1,30 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card } from "./card";
+import { NeuCard } from "./NeuCard";
 
 const meta = {
-  component: Card,
+  component: NeuCard,
   argTypes: {},
   args: {
-    neumorphic: true,
-    inset: true,
+    inset: false,
   },
-} satisfies Meta<typeof Card>;
+} satisfies Meta<typeof NeuCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Neu: Story = {
   args: {
     children: (
       <div>
         <div className="ui-text-lg">card example</div>
         <div className="ui-text-md">
-          this is an example of a neumorphic, inset card
+          this is an example of a neumorphic card
         </div>
+        <div className="ui-text-3xl ui-text-center">😊</div>
       </div>
     ),
     className: "ui-p-3",
-    neumorphic: true,
     inset: false,
   },
 };
