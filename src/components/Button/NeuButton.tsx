@@ -4,6 +4,15 @@ import { useIsButtonHover } from "../../hooks/useIsButtonHover";
 
 export type NeuButtonProps = React.ComponentProps<"button">;
 
+/**
+ * A neumorphic button component.
+ *
+ * Wrap any element in this component to render it on the button.
+ *
+ * This type extends all standard HTML <button> element attributes.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button
+ */
 export const NeuButton = ({
   children,
   className,

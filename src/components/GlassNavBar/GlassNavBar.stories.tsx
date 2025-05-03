@@ -12,7 +12,6 @@ const meta = {
   argTypes: {},
   args: {
     placement: "bottom",
-    neumorphic: true,
   },
 } satisfies Meta<typeof GlassNavBar>;
 

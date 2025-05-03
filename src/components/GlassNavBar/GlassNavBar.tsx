@@ -13,13 +13,21 @@ import { GlassPanel } from "../GlassPanel";
 // };
 type GlassNavBarProps = React.ComponentProps<"div"> & {
   placement?: "bottom" | "left" | "top" | "right";
-  neumorphic?: boolean;
 };
+
+/**
+ * A glassmorphic, sticky navigation bar component.
+ *
+ * @property {"bottom" | "left" | "top" | "right"} [placement] - Where to place the navigation bar.  Default is `bottom`.
+ *
+ * This type extends all standard HTML <div> element attributes.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div
+ */
 export const GlassNavBar = ({
   children,
   className,
   placement = "bottom",
-  neumorphic = false,
   ...props
 }: GlassNavBarProps) =>
   //   setPlayAboutAnimation,
@@ -101,7 +109,7 @@ export const GlassNavBar = ({
           <GlassPanel
             overallClassName="ui-size-fit"
             rounded={["t-full", "b-full"]}
-            neumorphic={neumorphic}
+            // neumorphic={neumorphic}
           >
             <div className="ui-flex ui-p-2 ui-gap-6">
               <div

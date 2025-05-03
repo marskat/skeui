@@ -2,6 +2,18 @@ import cn from "classnames";
 export type NeuCardProps = React.ComponentProps<"div"> & {
   inset?: boolean;
 };
+
+/**
+ * A neumorphic card component.
+ *
+ * Wrap any element in this component to render it on the card.
+ *
+ * @property {boolean} [inset] - [Optional] Whether or not the card should be inset.  Default is `false`.
+ *
+ * This type extends all standard HTML <div> element attributes.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div
+ */
 export const NeuCard = ({ children, inset = false }: NeuCardProps) => {
   return (
     <div className="ui">

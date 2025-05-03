@@ -7,12 +7,11 @@ import { useIsDesktop } from "../../hooks/useIsDesktop";
 import { GlassCard } from "../GlassCard";
 
 /**
- * Props for an image used in a carousel slide.
+ * Image used in a carousel slide.
  *
- * This type extends all standard HTML <img> element attributes,
- * such as `src`, `alt`, `width`, `height`, and others.
+ * This type extends all standard HTML <img> element attributes.
  *
- * @see https://react.dev/reference/react-dom/components/img
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img
  */
 export type SlideImage = React.ComponentProps<"img">;
 
@@ -20,8 +19,8 @@ export type SlideImage = React.ComponentProps<"img">;
  * Custom indicators to be used in the bottom navigation of the carousel component.
  * It is optional to override the indicators, but both types must be overridden if any overriding is done.
  *
- * @property {React.ReactNode} [on] - What is rendered for an active page.
- * @property {React.ReactNode} [off] - What is rendered for an inactive page.
+ * @property {React.ReactNode} on - What is rendered for an active page.
+ * @property {React.ReactNode} off - What is rendered for an inactive page.
  */
 export type SlideIndicators = {
   on: React.ReactNode;
@@ -32,8 +31,8 @@ export type SlideIndicators = {
  * Custom navigation buttons to be used for the previous and next buttons of the carousel component.
  * It is optional to override the navigation buttons, but both types must be overridden if any overriding is done.
  *
- * @property {React.ReactNode} [prev] - What is rendered for the previous button.
- * @property {React.ReactNode} [next] - What is rendered for the next button.
+ * @property {React.ReactNode} prev - What is rendered for the previous button.
+ * @property {React.ReactNode} next - What is rendered for the next button.
  */
 export type SlideNavButtons = {
   prev: React.ReactNode;
@@ -58,7 +57,7 @@ export type CarouselClassnames = {
 /**
  * A slide to be rendered as part of a carousel component.
  *
- * @property {SlideImage} [desktopImage] - Image to be rendered in the carousel for desktop resolutions (i.e. for larger breakpoints).
+ * @property {SlideImage} desktopImage - Image to be rendered in the carousel for desktop resolutions (i.e. for larger breakpoints).
  * @property {SlideImage} [mobileImage] - [Optional] Image to be rendered in the carousel for mobile resolutions (i.e. for smaller breakpoints).
  * @property {React.ReactNode} [slideContent] - [Optional] What is to be rendered under the image, such as a title or description.
  */
