@@ -1,30 +1,52 @@
 "use client";
+import cn from "classnames";
 import { Dispatch, SetStateAction, useState } from "react";
-import {
-  HiArrowTopRightOnSquare,
-  HiOutlineChevronLeft,
-  HiOutlineChevronRight,
-} from "react-icons/hi2";
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
 import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
-import { GlassPanel } from "../GlassPanel";
+import { GlassCard } from "../GlassCard";
 
-export type Slide = {
-  title: string;
-  tags: string[];
-  link: string;
-  desktopPreviewImage: string;
-  mobilePreviewImage?: string;
+export type SlideImage = React.ComponentProps<"img">;
+
+export type SlideIndicators = {
+  on: React.ReactNode;
+  off: React.ReactNode;
 };
 
-export type GlassCarouselProps = {
+export type SlideNavButtons = {
+  prev: React.ReactNode;
+  next: React.ReactNode;
+};
+
+export type CarouselClassnames = {
+  card?: string;
+  indicator?: string;
+  indicators?: string;
+  navButtons?: string;
+};
+
+export type Slide = {
+  slideContent?: React.ReactNode;
+  desktopImage: SlideImage;
+  mobileImage?: SlideImage;
+};
+
+export type GlassCarouselProps = React.ComponentProps<"div"> & {
   slides: Slide[];
-  neumorphic?: boolean;
+  indicators?: SlideIndicators;
+  navButtons?: SlideNavButtons;
+  classNames?: CarouselClassnames;
 };
 
 export const GlassCarousel = ({
   slides,
-  neumorphic = false,
+  indicators = { on: <VscCircleFilled />, off: <VscCircle /> },
+  navButtons = {
+    prev: <HiOutlineChevronLeft title="previous slide" />,
+    next: <HiOutlineChevronRight title="next slide" />,
+  },
+  classNames,
+  ...props
 }: GlassCarouselProps) => {
   const [visibleProject, setVisibleProject] = useState(0);
   const [playExitAnimation, setPlayExitAnimation] = useState(false);
@@ -41,16 +63,15 @@ export const GlassCarousel = ({
     <div className="ui">
       <div className="ui-flex ui-justify-center ui-place-items-center ui-size-fit">
         <button
-          title="previous slide"
-          className="ui-p-3"
           onClick={() => {
             setIsRightSwipe(true);
             handleSlideChange(
               visibleProject === 0 ? slides.length - 1 : visibleProject - 1
             );
           }}
+          className={cn("ui-p-2 hover:ui-scale-110", classNames?.navButtons)}
         >
-          <HiOutlineChevronLeft />
+          {navButtons.prev}
         </button>
         <div className="ui-w-fit">
           <CarouselSlide
@@ -62,25 +83,26 @@ export const GlassCarousel = ({
             isRightSwipe={isRightSwipe}
             setIsRightSwipe={setIsRightSwipe}
             isDesktop={useIsDesktop()}
-            neumorphic={neumorphic}
+            indicators={indicators}
+            classNames={classNames}
+            {...props}
           />
         </div>
         <button
-          title="next slide"
-          className="ui-p-3"
           onClick={() => {
             setIsRightSwipe(false);
             handleSlideChange((visibleProject + 1) % slides.length);
           }}
+          className={cn("ui-p-2 hover:ui-scale-110", classNames?.navButtons)}
         >
-          <HiOutlineChevronRight />
+          {navButtons.next}
         </button>
       </div>
     </div>
   );
 };
 
-type CarouselSlideProps = {
+type CarouselSlideProps = React.ComponentProps<"div"> & {
   handleSlideChange: (slide: number) => Promise<void>;
   visibleProject: number;
   playExitAnimation: boolean;
@@ -89,7 +111,8 @@ type CarouselSlideProps = {
   setIsRightSwipe: Dispatch<SetStateAction<boolean>>;
   isDesktop: boolean;
   slides: Slide[];
-  neumorphic?: boolean;
+  indicators: SlideIndicators;
+  classNames?: CarouselClassnames;
 };
 
 export const CarouselSlide = ({
@@ -101,11 +124,13 @@ export const CarouselSlide = ({
   setIsRightSwipe,
   isDesktop,
   slides,
-  neumorphic = false,
+  classNames,
+  indicators,
+  ...props
 }: CarouselSlideProps) => {
-  const handleClick = (url: string) => {
-    window.open(url, "_blank")?.focus();
-  };
+  // const handleClick = (url: string) => {
+  //   window.open(url, "_blank")?.focus();
+  // };
 
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -137,100 +162,68 @@ export const CarouselSlide = ({
   };
 
   return (
-    <div className="ui-flex ui-flex-col ui-justify-center">
-      <div className="ui-flex ui-justify-center">
-        <GlassPanel
-          rounded={["t-lg", "b-lg"]}
-          overallClassName="ui-size-fit"
-          neumorphic={neumorphic}
-        >
-          <div className="ui-size-fit">
-            <div
-              className="ui-p-3 ui-rounded-lg ui-overflow-clip ui-relative ui-h-[80svh] ui-w-[80svw] sm:ui-size-fit"
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
-            >
+    <div className="ui">
+      <div className="ui-flex ui-flex-col ui-justify-center">
+        <div className="ui-flex ui-justify-center">
+          <GlassCard className={cn("ui-rounded", classNames?.card)} {...props}>
+            <div className="ui-size-fit">
               <div
-                className={`ui-size-full ui-place-content-start sm:ui-place-content-end ${getAnimationClasses(
-                  playExitAnimation,
-                  isRightSwipe
-                )}`}
-                onAnimationEnd={() => setPlayExitAnimation(false)}
+                className="ui-p-3 ui-rounded-lg ui-overflow-clip ui-relative ui-h-[80svh] ui-w-[80svw] sm:ui-size-fit"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
               >
                 <div
-                  className={`ui-size-full sm:ui-h-[200px] ui-overflow-clip sm:ui-place-content-end ui-relative ${getAnimationClasses(
-                    playExitAnimation,
-                    isRightSwipe
-                  )}`}
+                  className="ui-size-full ui-place-content-start sm:ui-place-content-end ui-grid ui-grid-cols-1 ui-gap-2"
                   onAnimationEnd={() => setPlayExitAnimation(false)}
                 >
-                  <img
-                    src={
-                      isDesktop
-                        ? slides[visibleProject].desktopPreviewImage
-                        : slides[visibleProject].mobilePreviewImage ??
-                          slides[visibleProject].desktopPreviewImage
-                    }
-                    className="ui-soft-transition ui-size-full ui-hover:scale-110"
-                  />
-                </div>
-                <span className="ui-h-full ui-absolute sm:ui-static ui-w-full ui-top-0 ui-bg-gradient-to-b ui-from-orange-600 ui-to-transparent">
-                  <div className="ui-grid ui-gap-5 ui-p-2">
-                    <div className="ui-grid ui-gap-2">
-                      <h4>{slides[visibleProject].title}</h4>
-                      <div className="ui-flex ui-gap-2">
-                        {slides[visibleProject].tags.map((tag, i) => {
-                          return (
-                            <div
-                              className="ui-border ui-border-slate-800 ui-text-slate-800 ui-rounded-full ui-px-1 ui-text-sm ui-pointer-events-none ui-select-none"
-                              key={i}
-                            >
-                              {"#" + tag}
-                            </div>
-                          );
-                        })}
-                      </div>
+                  <div className="ui-flex ui-flex-col ui-items-center ui-w-full ui-h-[400px]">
+                    {/* // TODO: make all the static sizes props or dynamic */}
+                    <div
+                      className={`ui-w-full ui-max-w-[400px] ui-overflow-clip sm:ui-h-[200px] sm:ui-place-content-end ui-relative ${getAnimationClasses(
+                        playExitAnimation,
+                        isRightSwipe
+                      )}`}
+                      onAnimationEnd={() => setPlayExitAnimation(false)}
+                    >
+                      <img
+                        src={
+                          isDesktop
+                            ? slides[visibleProject].desktopImage.src
+                            : slides[visibleProject].mobileImage?.src ??
+                              slides[visibleProject].desktopImage.src
+                        }
+                        className="ui-soft-transition ui-w-full ui-h-auto ui-hover:scale-110"
+                      />
                     </div>
-                    <button
-                      className="ui-p-2"
-                      title={`visit ${slides[visibleProject].link}`}
-                      onClick={() => handleClick(slides[visibleProject].link)}
-                    >
-                      <HiArrowTopRightOnSquare />
-                    </button>
-                    {/* <button
-                      className="ui-btn ui-w-fit"
-                      title={`visit ${slides[visibleProject].link}`}
-                      onClick={() => handleClick(slides[visibleProject].link)}
-                    >
-                      <span className="ui-flex ui-gap-2">
-                        check it out{" "}
-                        <HiArrowTopRightOnSquare className="ui-self-center" />
-                      </span>
-                    </button> */}
+                    <div className="ui-w-full ui-max-w-[400px] ui-text-pretty">
+                      {slides[visibleProject].slideContent}
+                    </div>
                   </div>
-                </span>
+                </div>
               </div>
             </div>
-          </div>
-        </GlassPanel>
-        {/* <div className="glass-panel-wrapper before:rounded-lg relative w-fit">
-        </div> */}
-      </div>
-      <div className="ui-flex ui-justify-center ui-p-2">
-        {slides.map((_, i) => {
-          return (
-            <button
-              className="ui-text-slate-800"
-              onClick={() => handleSlideChange(i)}
-              key={i}
-            >
-              {visibleProject === i && <VscCircleFilled />}
-              {visibleProject !== i && <VscCircle />}
-            </button>
-          );
-        })}
+          </GlassCard>
+        </div>
+        <div
+          className={cn(
+            "ui-flex ui-gap-1 ui-justify-center ui-p-2",
+            classNames?.indicators
+          )}
+        >
+          {slides.map((_, i) => {
+            return (
+              <button
+                className={cn(classNames?.indicator)}
+                onClick={() => handleSlideChange(i)}
+                key={i}
+              >
+                {visibleProject === i && indicators.on}
+                {visibleProject !== i && indicators.off}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
