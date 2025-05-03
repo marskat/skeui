@@ -6,18 +6,48 @@ import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
 import { GlassCard } from "../GlassCard";
 
+/**
+ * Props for an image used in a carousel slide.
+ *
+ * This type extends all standard HTML <img> element attributes,
+ * such as `src`, `alt`, `width`, `height`, and others.
+ *
+ * @see https://react.dev/reference/react-dom/components/img
+ */
 export type SlideImage = React.ComponentProps<"img">;
 
+/**
+ * Custom indicators to be used in the bottom navigation of the carousel component.
+ * It is optional to override the indicators, but both types must be overridden if any overriding is done.
+ *
+ * @property {React.ReactNode} [on] - What is rendered for an active page.
+ * @property {React.ReactNode} [off] - What is rendered for an inactive page.
+ */
 export type SlideIndicators = {
   on: React.ReactNode;
   off: React.ReactNode;
 };
 
+/**
+ * Custom navigation buttons to be used for the previous and next buttons of the carousel component.
+ * It is optional to override the navigation buttons, but both types must be overridden if any overriding is done.
+ *
+ * @property {React.ReactNode} [prev] - What is rendered for the previous button.
+ * @property {React.ReactNode} [next] - What is rendered for the next button.
+ */
 export type SlideNavButtons = {
   prev: React.ReactNode;
   next: React.ReactNode;
 };
 
+/**
+ * Class names for overriding the appearance of the carousel component.
+ *
+ * @property {string} [card] - [Optional] Class name(s) for the carousel card, which is the container for the slide.
+ * @property {string} [indicator] - [Optional] Class name(s) for the individual indicators.
+ * @property {string} [indicators] - [Optional] Class name(s) for the indicators container.
+ * @property {string} [navButtons] - [Optional] Class name(s) for the navigation buttons.
+ */
 export type CarouselClassnames = {
   card?: string;
   indicator?: string;
@@ -25,10 +55,17 @@ export type CarouselClassnames = {
   navButtons?: string;
 };
 
+/**
+ * A slide to be rendered as part of a carousel component.
+ *
+ * @property {SlideImage} [desktopImage] - Image to be rendered in the carousel for desktop resolutions (i.e. for larger breakpoints).
+ * @property {SlideImage} [mobileImage] - [Optional] Image to be rendered in the carousel for mobile resolutions (i.e. for smaller breakpoints).
+ * @property {React.ReactNode} [slideContent] - [Optional] What is to be rendered under the image, such as a title or description.
+ */
 export type Slide = {
-  slideContent?: React.ReactNode;
   desktopImage: SlideImage;
   mobileImage?: SlideImage;
+  slideContent?: React.ReactNode;
 };
 
 export type GlassCarouselProps = React.ComponentProps<"div"> & {
@@ -38,6 +75,14 @@ export type GlassCarouselProps = React.ComponentProps<"div"> & {
   classNames?: CarouselClassnames;
 };
 
+/**
+ * A carousel component.
+ *
+ * @property {Slide[]} slides - The slides to display.
+ * @property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel.  Default is `{ on: <VscCircleFilled />, off: <VscCircle /> }`.
+ * @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation.  Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
+ * @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy.  Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
+ */
 export const GlassCarousel = ({
   slides,
   indicators = { on: <VscCircleFilled />, off: <VscCircle /> },
@@ -115,7 +160,7 @@ type CarouselSlideProps = React.ComponentProps<"div"> & {
   classNames?: CarouselClassnames;
 };
 
-export const CarouselSlide = ({
+const CarouselSlide = ({
   handleSlideChange,
   visibleProject,
   playExitAnimation,
