@@ -7,7 +7,7 @@ import {
 } from "react-icons/hi2";
 import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
-import { GlassButton } from "../GlassButton";
+import { GlassButton } from "../Button";
 import { GlassPanel } from "../GlassPanel";
 
 export type Slide = {
