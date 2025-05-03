@@ -1,6 +1,15 @@
 import cn from "classnames";
 
 export type GlassCardProps = React.ComponentProps<"div">;
+/**
+ * A glassmorphic card component.
+ *
+ * Wrap any element in this component to render it on the card.
+ *
+ * This type extends all standard HTML <div> element attributes.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div
+ */
 export const GlassCard = ({
   children,
   className,
