@@ -1,4 +1,4 @@
-# Glamo - add some class with some glass!
+# Glamo - A React Component Library for **Gla**ss**mo**rphism and Neumorphism
 
 > [!CAUTION]
 >
@@ -6,10 +6,10 @@
 >
 > ### More documentation will be available when Glamo is officially released. For now, I am just testing and stuff.
 
-## A React component library for **gla**ss**mo**rphism (and neumorphism)
-
-[![Storybook](https://img.shields.io/badge/Storybook-gray?&style=badge&logo=storybook&logoColor=white)]()
+[![npm](https://img.shields.io/npm/v/@marskat/glamo?&style=badge&logo=npm&logoColor=white&color=black)]()
 [![Github](https://img.shields.io/badge/Github-gray?&style=badge&logo=github&logoColor=white)](https://github.com/marskat/glamo)
+[![Storybook](https://img.shields.io/badge/Storybook-gray?&style=badge&logo=storybook&logoColor=white)](https://glamo-theta.vercel.app/)
+[![Bundlephobia](https://img.shields.io/bundlephobia/minzip/@marskat/glamo?logoColor=white&style=badge&label=Bundlephobia&logo=webpack&color=black)]()
 
 # Contents
 
