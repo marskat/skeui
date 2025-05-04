@@ -69,6 +69,10 @@ export type Slide = {
 
 export type GlassCarouselProps = React.ComponentProps<"div"> & {
   slides: Slide[];
+  size?: {
+    h?: string;
+    w?: string;
+  };
   indicators?: SlideIndicators;
   navButtons?: SlideNavButtons;
   classNames?: CarouselClassnames;
@@ -78,12 +82,14 @@ export type GlassCarouselProps = React.ComponentProps<"div"> & {
  * A carousel component.
  *
  * @property {Slide[]} slides - The slides to display.
+ * @property {{h:string, w:string}} [size] - [Optional] Size of the card in any CSS-acceptable string.  This must be a static size to ensure the navigation buttons don't move when cycling through slides.  Default is `{ h: '28rem', w:'24rem' }`.
  * @property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel.  Default is `{ on: <VscCircleFilled />, off: <VscCircle /> }`.
  * @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation.  Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
  * @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy.  Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
  */
 export const GlassCarousel = ({
   slides,
+  size = { h: "28rem", w: "24rem" },
   indicators = { on: <VscCircleFilled />, off: <VscCircle /> },
   navButtons = {
     prev: <HiOutlineChevronLeft title="previous slide" />,
@@ -129,6 +135,7 @@ export const GlassCarousel = ({
             isDesktop={useIsDesktop()}
             indicators={indicators}
             classNames={classNames}
+            size={size}
             {...props}
           />
         </div>
@@ -155,6 +162,10 @@ type CarouselSlideProps = React.ComponentProps<"div"> & {
   setIsRightSwipe: Dispatch<SetStateAction<boolean>>;
   isDesktop: boolean;
   slides: Slide[];
+  size?: {
+    h?: string;
+    w?: string;
+  };
   indicators: SlideIndicators;
   classNames?: CarouselClassnames;
 };
@@ -168,14 +179,11 @@ const CarouselSlide = ({
   setIsRightSwipe,
   isDesktop,
   slides,
+  size,
   classNames,
   indicators,
   ...props
 }: CarouselSlideProps) => {
-  // const handleClick = (url: string) => {
-  //   window.open(url, "_blank")?.focus();
-  // };
-
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
@@ -221,13 +229,16 @@ const CarouselSlide = ({
                   className="ui-size-full ui-place-content-start sm:ui-place-content-end ui-grid ui-grid-cols-1 ui-gap-2"
                   onAnimationEnd={() => setPlayExitAnimation(false)}
                 >
-                  <div className="ui-flex ui-flex-col ui-items-center ui-w-full ui-h-[400px]">
-                    {/* // TODO: make all the static sizes props or dynamic */}
+                  <div
+                    className="ui-flex ui-flex-col ui-items-center ui-w-full"
+                    style={{ height: size?.h }}
+                  >
                     <div
-                      className={`ui-w-full ui-max-w-[400px] ui-overflow-clip sm:ui-h-[200px] sm:ui-place-content-end ui-relative ${getAnimationClasses(
+                      className={`ui-w-full ui-overflow-clip  sm:ui-place-content-end ui-relative ${getAnimationClasses(
                         playExitAnimation,
                         isRightSwipe
                       )}`}
+                      style={{ maxWidth: size?.w }}
                       onAnimationEnd={() => setPlayExitAnimation(false)}
                     >
                       <img
@@ -240,7 +251,10 @@ const CarouselSlide = ({
                         className="ui-soft-transition ui-w-full ui-h-auto ui-hover:scale-110"
                       />
                     </div>
-                    <div className="ui-w-full ui-max-w-[400px] ui-text-pretty">
+                    <div
+                      className="ui-w-full ui-text-pretty ui-h-full"
+                      style={{ maxWidth: size?.w }}
+                    >
                       {slides[visibleProject].slideContent}
                     </div>
                   </div>

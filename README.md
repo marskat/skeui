@@ -137,6 +137,8 @@ A carousel component.
 
 @property {Slide[]} slides - The slides to display.
 
+@property {{h:string, w:string}} [size] - [Optional] Size of the card in any CSS-acceptable string. This must be a static size to ensure the navigation buttons don't move when cycling through slides. Default is `{ h: '28rem', w:'24rem' }`.
+
 @property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel. Default is `{ on: <VscCircleFilled />, off: <VscCircle /> }`.
 
 @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation. Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
