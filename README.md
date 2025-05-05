@@ -47,95 +47,69 @@ export default function Home() {
 
 ## Button
 
-### NeuButton
-
-A neumorphic button component.
+A skeumorphic button component.
 
 Wrap any element in this component to render it on the button.
+
+@property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+
 This type extends all standard HTML `<button>` element attributes.
 (See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button)
 
-#### Example Usage
+### Example Usage
 
 ```typescript
-import { NeuButton } from "glamo";
+import { SkeuButton } from "glamo";
 import "glamo/ui-library.css";
 
 export default function Home() {
   return (
-    <NeuButton>
+    <SkeuButton aesthetic="neumorphic">
       <div className="p-3 text-black bg-white">Click me</div>
-    </NeuButton>
+    </SkeuButton>
   );
 }
 ```
 
 ## Card
 
-### NeuCard
-
-A neumorphic card component.
+A skeumorphic card component.
 
 Wrap any element in this component to render it on the card.
 
+@property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+
 @property {boolean} [inset] - [Optional] Whether or not the card should be inset. Default is `false`.
+
 This type extends all standard HTML `<button>` element attributes.
 (See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button)
 
-#### Example Usage
+### Example Usage
 
 ```typescript
-import { NeuCard } from "glamo";
+import { SkeuCard } from "glamo";
 import "glamo/ui-library.css";
 
 export default function Home() {
   return (
-    <NeuCard className="p-3">
+    <SkeuCard className="p-3" aesthetic="neumorphic">
       <div>
         <div className="text-lg">card example</div>
         <div className="text-md">this is an example of a neumorphic card</div>
         <div className="text-3xl text-center">😊</div>
       </div>
-    </NeuCard>
-  );
-}
-```
-
-### GlassCard
-
-A glassmorphic card component.
-
-Wrap any element in this component to render it on the card.
-
-This type extends all standard HTML `<button>` element attributes.
-(See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button)
-
-#### Example Usage
-
-```typescript
-import { GlassCard } from "glamo";
-import "glamo/ui-library.css";
-
-export default function Home() {
-  return (
-    <GlassCard className="p-3">
-      <div>
-        <div className="text-lg">card example</div>
-        <div className="text-md">this is an example of a glassmorphic card</div>
-        <div className="text-3xl text-center">😊</div>
-      </div>
-    </GlassCard>
+    </SkeuCard>
   );
 }
 ```
 
 ## Carousel
 
-### GlassCarousel
-
 A carousel component.
 
 @property {Slide[]} slides - The slides to display.
+
+@property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
 
 @property {{h:string, w:string}} [size] - [Optional] Size of the card in any CSS-acceptable string. This must be a static size to ensure the navigation buttons don't move when cycling through slides. Default is `{ h: '28rem', w:'24rem' }`.
 
@@ -145,10 +119,10 @@ A carousel component.
 
 @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy. Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
 
-#### Example Usage
+### Example Usage
 
 ```typescript
-import { GlassCarousel } from "glamo";
+import { SkeuCarousel } from "glamo";
 import "glamo/ui-library.css";
 
 const demoSlides: Slide[] = [
@@ -182,27 +156,27 @@ const demoSlides: Slide[] = [
 ];
 
 export default function Home() {
-  return <GlassCarousel slides={demoSlides} />;
+  return <SkeuCarousel slides={demoSlides} aesthetic="glassmorphic" />;
 }
 ```
 
 ## Navigation Bar
 
-### GlassNavBar
-
-A glassmorphic, sticky navigation bar component.
+A skeumorphic, sticky navigation bar component.
 
 @property {"bottom" | "left" | "top" | "right"} [placement] - Where to place the navigation bar. Default is `bottom`.
+
+@property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
 
 Wrap any element in this component to render it on the menu.
 
 This type extends all standard HTML `<button>` element attributes.
 (See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button)
 
-#### Example Usage
+### Example Usage
 
 ```typescript
-import { GlassNavBar } from "glamo";
+import { SkeuNavBar } from "glamo";
 import "glamo/ui-library.css";
 
 import {
@@ -214,7 +188,7 @@ import {
 
 export default function Home() {
   return (
-    <GlassNavBar>
+    <SkeuNavBar>
       <>
         <button title="home">
           <HiOutlineHome />
@@ -229,7 +203,7 @@ export default function Home() {
           <HiOutlineCog6Tooth />
         </button>
       </>
-    </GlassNavBar>
+    </SkeuNavBar>
   );
 }
 ```

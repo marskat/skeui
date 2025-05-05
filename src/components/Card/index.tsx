@@ -1,1 +1,0 @@
-export { NeuCard } from "./NeuCard";

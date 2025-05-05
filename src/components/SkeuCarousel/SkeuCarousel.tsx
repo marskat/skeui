@@ -4,7 +4,8 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
 import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
-import { GlassCard } from "../GlassCard";
+import { SkeuCard } from "../SkeuCard";
+import { Aesthetic } from "../SkeuCard/SkeuCard";
 
 /**
  * Image used in a carousel slide.
@@ -67,8 +68,9 @@ export type Slide = {
   slideContent?: React.ReactNode;
 };
 
-export type GlassCarouselProps = React.ComponentProps<"div"> & {
+export type SkeuCarouselProps = React.ComponentProps<"div"> & {
   slides: Slide[];
+  aesthetic?: Aesthetic;
   size?: {
     h?: string;
     w?: string;
@@ -77,17 +79,17 @@ export type GlassCarouselProps = React.ComponentProps<"div"> & {
   navButtons?: SlideNavButtons;
   classNames?: CarouselClassnames;
 };
-
 /**
  * A carousel component.
  *
  * @property {Slide[]} slides - The slides to display.
+ * @property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
  * @property {{h:string, w:string}} [size] - [Optional] Size of the card in any CSS-acceptable string.  This must be a static size to ensure the navigation buttons don't move when cycling through slides.  Default is `{ h: '28rem', w:'24rem' }`.
  * @property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel.  Default is `{ on: <VscCircleFilled />, off: <VscCircle /> }`.
  * @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation.  Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
  * @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy.  Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
  */
-export const GlassCarousel = ({
+export const SkeuCarousel = ({
   slides,
   size = { h: "28rem", w: "24rem" },
   indicators = { on: <VscCircleFilled />, off: <VscCircle /> },
@@ -97,7 +99,7 @@ export const GlassCarousel = ({
   },
   classNames,
   ...props
-}: GlassCarouselProps) => {
+}: SkeuCarouselProps) => {
   const [visibleProject, setVisibleProject] = useState(0);
   const [playExitAnimation, setPlayExitAnimation] = useState(false);
   const [isRightSwipe, setIsRightSwipe] = useState(false);
@@ -168,6 +170,7 @@ type CarouselSlideProps = React.ComponentProps<"div"> & {
   };
   indicators: SlideIndicators;
   classNames?: CarouselClassnames;
+  aesthetic?: Aesthetic;
 };
 
 const CarouselSlide = ({
@@ -182,6 +185,7 @@ const CarouselSlide = ({
   size,
   classNames,
   indicators,
+  aesthetic,
   ...props
 }: CarouselSlideProps) => {
   const [touchStart, setTouchStart] = useState(0);
@@ -217,7 +221,11 @@ const CarouselSlide = ({
     <div className="ui">
       <div className="ui-flex ui-flex-col ui-justify-center">
         <div className="ui-flex ui-justify-center">
-          <GlassCard className={cn("ui-rounded", classNames?.card)} {...props}>
+          <SkeuCard
+            className={cn("ui-rounded", classNames?.card)}
+            aesthetic={aesthetic}
+            {...props}
+          >
             <div className="ui-size-fit">
               <div
                 className="ui-p-3 ui-rounded-lg ui-overflow-clip ui-relative ui-h-[80svh] ui-w-[80svw] sm:ui-size-fit"
@@ -261,7 +269,7 @@ const CarouselSlide = ({
                 </div>
               </div>
             </div>
-          </GlassCard>
+          </SkeuCard>
         </div>
         <div
           className={cn(

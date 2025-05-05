@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { GlassCarousel, Slide } from "./GlassCarousel";
+import { SkeuCarousel, Slide } from "./SkeuCarousel";
 
 // TODO: you want to set the height and width statically, to ensure that your carousel does not change size between slides
 const demoSlides: Slide[] = [
@@ -31,46 +31,34 @@ const demoSlides: Slide[] = [
     desktopImage: { src: "/public/DemoCarouselSlide3.png" },
   },
 ];
+const aestheticOptions = ["glassmorphic", "neumorphic"] as const;
 
 const meta = {
-  component: GlassCarousel,
-  argTypes: {},
+  component: SkeuCarousel,
+  argTypes: {
+    aesthetic: {
+      control: {
+        type: "radio",
+      },
+      options: aestheticOptions,
+      description: "Aesthetic style",
+    },
+  },
   args: {},
-} satisfies Meta<typeof GlassCarousel>;
+} satisfies Meta<typeof SkeuCarousel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Glassmorphic: Story = {
   args: {
     slides: demoSlides,
-    // indicators: {
-    //   on: <FaHeart />,
-    //   off: <FaRegHeart />,
-    // },
-    // classNames: {
-    //   card: "ui-text-pink-500",
-    //   indicator: "ui-text-pink-500",
-    //   indicators: "ui-gap-4",
-    //   navButtons: "ui-text-pink-500",
-    // },
+    aesthetic: "glassmorphic",
   },
 };
-
-// slideContent: (
-//       <div>
-//         <div>Slide 2</div>
-//         <div className="ui-flex ui-gap-2">
-//           {["react", "nextjs", "tailwindcss"].map((tag, i) => {
-//             return (
-//               <div
-//                 className="ui-border ui-border-slate-800 ui-text-slate-800 ui-rounded-full ui-px-1 ui-text-sm ui-pointer-events-none ui-select-none"
-//                 key={i}
-//               >
-//                 {"#" + tag}
-//               </div>
-//             );
-//           })}
-//         </div>
-//       </div>
-//     ),
+export const Neumorphic: Story = {
+  args: {
+    slides: demoSlides,
+    aesthetic: "neumorphic",
+  },
+};
