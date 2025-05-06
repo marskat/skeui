@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SkeuCarousel, Slide } from "./SkeuCarousel";
+import { Carousel, Slide } from "./Carousel";
 
 // TODO: you want to set the height and width statically, to ensure that your carousel does not change size between slides
 const demoSlides: Slide[] = [
   {
     slideContent: (
-      <div className="ui-p-3">
+      <div className="skeui-p-3">
         <div>Slide 1</div>
         <div>this is a slide description for slide 1</div>
       </div>
@@ -14,7 +14,7 @@ const demoSlides: Slide[] = [
   },
   {
     slideContent: (
-      <div className="ui-p-3">
+      <div className="skeui-p-3">
         <div>Slide 2</div>
         <div>this is a slide description for slide 2</div>
       </div>
@@ -23,7 +23,7 @@ const demoSlides: Slide[] = [
   },
   {
     slideContent: (
-      <div className="ui-p-3">
+      <div className="skeui-p-3">
         <div>Slide 3</div>
         <div>this is a slide description for slide 3</div>
       </div>
@@ -34,7 +34,7 @@ const demoSlides: Slide[] = [
 const aestheticOptions = ["glassmorphic", "neumorphic"] as const;
 
 const meta = {
-  component: SkeuCarousel,
+  component: Carousel,
   argTypes: {
     aesthetic: {
       control: {
@@ -45,7 +45,7 @@ const meta = {
     },
   },
   args: {},
-} satisfies Meta<typeof SkeuCarousel>;
+} satisfies Meta<typeof Carousel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

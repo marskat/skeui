@@ -1,89 +1,3 @@
-// export type RoundedOption =
-//   | "r-full"
-//   | "b-full"
-//   | "l-full"
-//   | "t-full"
-//   | "tl-full"
-//   | "bl-full"
-//   | "br-full"
-//   | "tr-full";
-
-// const roundedClassMap: Record<RoundedOption, string> = {
-//   "r-full": "ui-rounded-r-full",
-//   "b-full": "ui-rounded-b-full",
-//   "l-full": "ui-rounded-l-full",
-//   "t-full": "ui-rounded-t-full",
-//   "tl-full": "ui-rounded-tl-full",
-//   "bl-full": "ui-rounded-bl-full",
-//   "br-full": "ui-rounded-br-full",
-//   "tr-full": "ui-rounded-tr-full",
-// };
-
-// const beforeRoundedClassMap: Record<RoundedOption, string> = {
-//   "r-full": "before:ui-rounded-r-full",
-//   "b-full": "before:ui-rounded-b-full",
-//   "l-full": "before:ui-rounded-l-full",
-//   "t-full": "before:ui-rounded-t-full",
-//   "tl-full": "before:ui-rounded-tl-full",
-//   "bl-full": "before:ui-rounded-bl-full",
-//   "br-full": "before:ui-rounded-br-full",
-//   "tr-full": "before:ui-rounded-tr-full",
-// };
-
-// function getRoundedClasses(
-//   rounded: RoundedOption | RoundedOption[] = "b-full"
-// ): string[] {
-//   const arr = Array.isArray(rounded) ? rounded : [rounded];
-//   return arr.map((r) => roundedClassMap[r]);
-// }
-
-// function getBeforeRoundedClasses(
-//   rounded: RoundedOption | RoundedOption[] = "b-full"
-// ): string[] {
-//   const arr = Array.isArray(rounded) ? rounded : [rounded];
-//   return arr.map((r) => beforeRoundedClassMap[r]);
-// }
-
-// import cn from "classnames";
-
-// export type GlassPanelProps = {
-//   rounded?: RoundedOption | RoundedOption[];
-//   className?: string;
-//   overallClassName?: string;
-//   children?: React.ReactNode;
-// };
-
-// export const GlassPanel = ({
-//   rounded = "b-full",
-//   className,
-//   overallClassName,
-//   children,
-// }: GlassPanelProps) => {
-//   const roundedClasses = getRoundedClasses(rounded);
-//   const beforeRoundedClasses = getBeforeRoundedClasses(rounded);
-
-//   return (
-//     <div className={cn("ui", overallClassName)}>
-//       <div
-//         className={cn(
-//           "before:ui-nm-outside-shadow before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative",
-//           beforeRoundedClasses
-//         )}
-//       >
-//         <div
-//           className={cn(
-//             "ui-backdrop-blur-2xl ui-soft-transition ui-gp-inside-shadow ui-size-full ui-relative ui-overflow-clip",
-//             roundedClasses,
-//             className
-//           )}
-//         >
-//           {children}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
 export type RoundedOption =
   | "r-full"
   | "r-2xl"
@@ -136,120 +50,120 @@ export type RoundedOption =
 
 const roundedClassMap: Record<RoundedOption, string> = {
   // Right
-  "r-full": "ui-rounded-r-full",
-  "r-2xl": "ui-rounded-r-2xl",
-  "r-xl": "ui-rounded-r-xl",
-  "r-lg": "ui-rounded-r-lg",
-  "r-md": "ui-rounded-r-md",
-  "r-sm": "ui-rounded-r-sm",
+  "r-full": "skeui-rounded-r-full",
+  "r-2xl": "skeui-rounded-r-2xl",
+  "r-xl": "skeui-rounded-r-xl",
+  "r-lg": "skeui-rounded-r-lg",
+  "r-md": "skeui-rounded-r-md",
+  "r-sm": "skeui-rounded-r-sm",
   // Bottom
-  "b-full": "ui-rounded-b-full",
-  "b-2xl": "ui-rounded-b-2xl",
-  "b-xl": "ui-rounded-b-xl",
-  "b-lg": "ui-rounded-b-lg",
-  "b-md": "ui-rounded-b-md",
-  "b-sm": "ui-rounded-b-sm",
+  "b-full": "skeui-rounded-b-full",
+  "b-2xl": "skeui-rounded-b-2xl",
+  "b-xl": "skeui-rounded-b-xl",
+  "b-lg": "skeui-rounded-b-lg",
+  "b-md": "skeui-rounded-b-md",
+  "b-sm": "skeui-rounded-b-sm",
   // Left
-  "l-full": "ui-rounded-l-full",
-  "l-2xl": "ui-rounded-l-2xl",
-  "l-xl": "ui-rounded-l-xl",
-  "l-lg": "ui-rounded-l-lg",
-  "l-md": "ui-rounded-l-md",
-  "l-sm": "ui-rounded-l-sm",
+  "l-full": "skeui-rounded-l-full",
+  "l-2xl": "skeui-rounded-l-2xl",
+  "l-xl": "skeui-rounded-l-xl",
+  "l-lg": "skeui-rounded-l-lg",
+  "l-md": "skeui-rounded-l-md",
+  "l-sm": "skeui-rounded-l-sm",
   // Top
-  "t-full": "ui-rounded-t-full",
-  "t-2xl": "ui-rounded-t-2xl",
-  "t-xl": "ui-rounded-t-xl",
-  "t-lg": "ui-rounded-t-lg",
-  "t-md": "ui-rounded-t-md",
-  "t-sm": "ui-rounded-t-sm",
+  "t-full": "skeui-rounded-t-full",
+  "t-2xl": "skeui-rounded-t-2xl",
+  "t-xl": "skeui-rounded-t-xl",
+  "t-lg": "skeui-rounded-t-lg",
+  "t-md": "skeui-rounded-t-md",
+  "t-sm": "skeui-rounded-t-sm",
   // Top-left
-  "tl-full": "ui-rounded-tl-full",
-  "tl-2xl": "ui-rounded-tl-2xl",
-  "tl-xl": "ui-rounded-tl-xl",
-  "tl-lg": "ui-rounded-tl-lg",
-  "tl-md": "ui-rounded-tl-md",
-  "tl-sm": "ui-rounded-tl-sm",
+  "tl-full": "skeui-rounded-tl-full",
+  "tl-2xl": "skeui-rounded-tl-2xl",
+  "tl-xl": "skeui-rounded-tl-xl",
+  "tl-lg": "skeui-rounded-tl-lg",
+  "tl-md": "skeui-rounded-tl-md",
+  "tl-sm": "skeui-rounded-tl-sm",
   // Bottom-left
-  "bl-full": "ui-rounded-bl-full",
-  "bl-2xl": "ui-rounded-bl-2xl",
-  "bl-xl": "ui-rounded-bl-xl",
-  "bl-lg": "ui-rounded-bl-lg",
-  "bl-md": "ui-rounded-bl-md",
-  "bl-sm": "ui-rounded-bl-sm",
+  "bl-full": "skeui-rounded-bl-full",
+  "bl-2xl": "skeui-rounded-bl-2xl",
+  "bl-xl": "skeui-rounded-bl-xl",
+  "bl-lg": "skeui-rounded-bl-lg",
+  "bl-md": "skeui-rounded-bl-md",
+  "bl-sm": "skeui-rounded-bl-sm",
   // Bottom-right
-  "br-full": "ui-rounded-br-full",
-  "br-2xl": "ui-rounded-br-2xl",
-  "br-xl": "ui-rounded-br-xl",
-  "br-lg": "ui-rounded-br-lg",
-  "br-md": "ui-rounded-br-md",
-  "br-sm": "ui-rounded-br-sm",
+  "br-full": "skeui-rounded-br-full",
+  "br-2xl": "skeui-rounded-br-2xl",
+  "br-xl": "skeui-rounded-br-xl",
+  "br-lg": "skeui-rounded-br-lg",
+  "br-md": "skeui-rounded-br-md",
+  "br-sm": "skeui-rounded-br-sm",
   // Top-right
-  "tr-full": "ui-rounded-tr-full",
-  "tr-2xl": "ui-rounded-tr-2xl",
-  "tr-xl": "ui-rounded-tr-xl",
-  "tr-lg": "ui-rounded-tr-lg",
-  "tr-md": "ui-rounded-tr-md",
-  "tr-sm": "ui-rounded-tr-sm",
+  "tr-full": "skeui-rounded-tr-full",
+  "tr-2xl": "skeui-rounded-tr-2xl",
+  "tr-xl": "skeui-rounded-tr-xl",
+  "tr-lg": "skeui-rounded-tr-lg",
+  "tr-md": "skeui-rounded-tr-md",
+  "tr-sm": "skeui-rounded-tr-sm",
 };
 
 const beforeRoundedClassMap: Record<RoundedOption, string> = {
   // Right
-  "r-full": "before:ui-rounded-r-full",
-  "r-2xl": "before:ui-rounded-r-2xl",
-  "r-xl": "before:ui-rounded-r-xl",
-  "r-lg": "before:ui-rounded-r-lg",
-  "r-md": "before:ui-rounded-r-md",
-  "r-sm": "before:ui-rounded-r-sm",
+  "r-full": "before:skeui-rounded-r-full",
+  "r-2xl": "before:skeui-rounded-r-2xl",
+  "r-xl": "before:skeui-rounded-r-xl",
+  "r-lg": "before:skeui-rounded-r-lg",
+  "r-md": "before:skeui-rounded-r-md",
+  "r-sm": "before:skeui-rounded-r-sm",
   // Bottom
-  "b-full": "before:ui-rounded-b-full",
-  "b-2xl": "before:ui-rounded-b-2xl",
-  "b-xl": "before:ui-rounded-b-xl",
-  "b-lg": "before:ui-rounded-b-lg",
-  "b-md": "before:ui-rounded-b-md",
-  "b-sm": "before:ui-rounded-b-sm",
+  "b-full": "before:skeui-rounded-b-full",
+  "b-2xl": "before:skeui-rounded-b-2xl",
+  "b-xl": "before:skeui-rounded-b-xl",
+  "b-lg": "before:skeui-rounded-b-lg",
+  "b-md": "before:skeui-rounded-b-md",
+  "b-sm": "before:skeui-rounded-b-sm",
   // Left
-  "l-full": "before:ui-rounded-l-full",
-  "l-2xl": "before:ui-rounded-l-2xl",
-  "l-xl": "before:ui-rounded-l-xl",
-  "l-lg": "before:ui-rounded-l-lg",
-  "l-md": "before:ui-rounded-l-md",
-  "l-sm": "before:ui-rounded-l-sm",
+  "l-full": "before:skeui-rounded-l-full",
+  "l-2xl": "before:skeui-rounded-l-2xl",
+  "l-xl": "before:skeui-rounded-l-xl",
+  "l-lg": "before:skeui-rounded-l-lg",
+  "l-md": "before:skeui-rounded-l-md",
+  "l-sm": "before:skeui-rounded-l-sm",
   // Top
-  "t-full": "before:ui-rounded-t-full",
-  "t-2xl": "before:ui-rounded-t-2xl",
-  "t-xl": "before:ui-rounded-t-xl",
-  "t-lg": "before:ui-rounded-t-lg",
-  "t-md": "before:ui-rounded-t-md",
-  "t-sm": "before:ui-rounded-t-sm",
+  "t-full": "before:skeui-rounded-t-full",
+  "t-2xl": "before:skeui-rounded-t-2xl",
+  "t-xl": "before:skeui-rounded-t-xl",
+  "t-lg": "before:skeui-rounded-t-lg",
+  "t-md": "before:skeui-rounded-t-md",
+  "t-sm": "before:skeui-rounded-t-sm",
   // Top-left
-  "tl-full": "before:ui-rounded-tl-full",
-  "tl-2xl": "before:ui-rounded-tl-2xl",
-  "tl-xl": "before:ui-rounded-tl-xl",
-  "tl-lg": "before:ui-rounded-tl-lg",
-  "tl-md": "before:ui-rounded-tl-md",
-  "tl-sm": "before:ui-rounded-tl-sm",
+  "tl-full": "before:skeui-rounded-tl-full",
+  "tl-2xl": "before:skeui-rounded-tl-2xl",
+  "tl-xl": "before:skeui-rounded-tl-xl",
+  "tl-lg": "before:skeui-rounded-tl-lg",
+  "tl-md": "before:skeui-rounded-tl-md",
+  "tl-sm": "before:skeui-rounded-tl-sm",
   // Bottom-left
-  "bl-full": "before:ui-rounded-bl-full",
-  "bl-2xl": "before:ui-rounded-bl-2xl",
-  "bl-xl": "before:ui-rounded-bl-xl",
-  "bl-lg": "before:ui-rounded-bl-lg",
-  "bl-md": "before:ui-rounded-bl-md",
-  "bl-sm": "before:ui-rounded-bl-sm",
+  "bl-full": "before:skeui-rounded-bl-full",
+  "bl-2xl": "before:skeui-rounded-bl-2xl",
+  "bl-xl": "before:skeui-rounded-bl-xl",
+  "bl-lg": "before:skeui-rounded-bl-lg",
+  "bl-md": "before:skeui-rounded-bl-md",
+  "bl-sm": "before:skeui-rounded-bl-sm",
   // Bottom-right
-  "br-full": "before:ui-rounded-br-full",
-  "br-2xl": "before:ui-rounded-br-2xl",
-  "br-xl": "before:ui-rounded-br-xl",
-  "br-lg": "before:ui-rounded-br-lg",
-  "br-md": "before:ui-rounded-br-md",
-  "br-sm": "before:ui-rounded-br-sm",
+  "br-full": "before:skeui-rounded-br-full",
+  "br-2xl": "before:skeui-rounded-br-2xl",
+  "br-xl": "before:skeui-rounded-br-xl",
+  "br-lg": "before:skeui-rounded-br-lg",
+  "br-md": "before:skeui-rounded-br-md",
+  "br-sm": "before:skeui-rounded-br-sm",
   // Top-right
-  "tr-full": "before:ui-rounded-tr-full",
-  "tr-2xl": "before:ui-rounded-tr-2xl",
-  "tr-xl": "before:ui-rounded-tr-xl",
-  "tr-lg": "before:ui-rounded-tr-lg",
-  "tr-md": "before:ui-rounded-tr-md",
-  "tr-sm": "before:ui-rounded-tr-sm",
+  "tr-full": "before:skeui-rounded-tr-full",
+  "tr-2xl": "before:skeui-rounded-tr-2xl",
+  "tr-xl": "before:skeui-rounded-tr-xl",
+  "tr-lg": "before:skeui-rounded-tr-lg",
+  "tr-md": "before:skeui-rounded-tr-md",
+  "tr-sm": "before:skeui-rounded-tr-sm",
 };
 
 function getRoundedClasses(
@@ -276,6 +190,7 @@ export type GlassPanelProps = React.ComponentProps<"div"> & {
   neumorphic?: boolean;
 };
 
+// TODO: get rid of this
 export const GlassPanel = ({
   rounded = "b-full",
   className,
@@ -292,19 +207,19 @@ export const GlassPanel = ({
       {neumorphic && (
         <div
           className={cn(
-            "before:ui-nm-outside-highlight before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative",
+            "before:skeui-nm-outside-highlight before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative",
             beforeRoundedClasses
           )}
         >
           <div
             className={cn(
-              "before:ui-nm-outside-shadow before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative",
+              "before:skeui-nm-outside-shadow before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative",
               beforeRoundedClasses
             )}
           >
             <div
               className={cn(
-                "ui-backdrop-blur-2xl ui-soft-transition ui-gp-inside-shadow ui-size-full ui-relative ui-overflow-clip",
+                "skeui-backdrop-blur-2xl skeui-soft-transition skeui-gp-inside-shadow skeui-size-full skeui-relative skeui-overflow-clip",
                 roundedClasses,
                 className
               )}
@@ -318,7 +233,7 @@ export const GlassPanel = ({
       {!neumorphic && (
         <div
           className={cn(
-            "ui-backdrop-blur-2xl ui-soft-transition ui-gp-inside-shadow ui-size-full ui-relative ui-overflow-clip",
+            "skeui-backdrop-blur-2xl skeui-soft-transition skeui-gp-inside-shadow skeui-size-full skeui-relative skeui-overflow-clip",
             roundedClasses,
             className
           )}

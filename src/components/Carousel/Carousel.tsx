@@ -4,8 +4,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
 import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
-import { SkeuCard } from "../SkeuCard";
-import { Aesthetic } from "../SkeuCard/SkeuCard";
+import { Aesthetic, Card } from "../Card/card";
 
 /**
  * Image used in a carousel slide.
@@ -68,7 +67,7 @@ export type Slide = {
   slideContent?: React.ReactNode;
 };
 
-export type SkeuCarouselProps = React.ComponentProps<"div"> & {
+export type CarouselProps = React.ComponentProps<"div"> & {
   slides: Slide[];
   aesthetic?: Aesthetic;
   size?: {
@@ -83,13 +82,13 @@ export type SkeuCarouselProps = React.ComponentProps<"div"> & {
  * A carousel component.
  *
  * @property {Slide[]} slides - The slides to display.
- * @property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
+ * @property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
  * @property {{h:string, w:string}} [size] - [Optional] Size of the card in any CSS-acceptable string.  This must be a static size to ensure the navigation buttons don't move when cycling through slides.  Default is `{ h: '28rem', w:'24rem' }`.
  * @property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel.  Default is `{ on: <VscCircleFilled />, off: <VscCircle /> }`.
  * @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation.  Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
  * @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy.  Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
  */
-export const SkeuCarousel = ({
+export const Carousel = ({
   slides,
   size = { h: "28rem", w: "24rem" },
   indicators = { on: <VscCircleFilled />, off: <VscCircle /> },
@@ -99,7 +98,7 @@ export const SkeuCarousel = ({
   },
   classNames,
   ...props
-}: SkeuCarouselProps) => {
+}: CarouselProps) => {
   const [visibleProject, setVisibleProject] = useState(0);
   const [playExitAnimation, setPlayExitAnimation] = useState(false);
   const [isRightSwipe, setIsRightSwipe] = useState(false);
@@ -112,8 +111,8 @@ export const SkeuCarousel = ({
   };
 
   return (
-    <div className="ui">
-      <div className="ui-flex ui-justify-center ui-place-items-center ui-size-fit">
+    <div className="skeui">
+      <div className="skeui-flex skeui-justify-center skeui-place-items-center skeui-size-fit">
         <button
           onClick={() => {
             setIsRightSwipe(true);
@@ -121,11 +120,14 @@ export const SkeuCarousel = ({
               visibleProject === 0 ? slides.length - 1 : visibleProject - 1
             );
           }}
-          className={cn("ui-p-2 hover:ui-scale-110", classNames?.navButtons)}
+          className={cn(
+            "skeui-p-2 hover:skeui-scale-110",
+            classNames?.navButtons
+          )}
         >
           {navButtons.prev}
         </button>
-        <div className="ui-w-fit">
+        <div className="skeui-w-fit">
           <CarouselSlide
             slides={slides}
             handleSlideChange={handleSlideChange}
@@ -146,7 +148,10 @@ export const SkeuCarousel = ({
             setIsRightSwipe(false);
             handleSlideChange((visibleProject + 1) % slides.length);
           }}
-          className={cn("ui-p-2 hover:ui-scale-110", classNames?.navButtons)}
+          className={cn(
+            "skeui-p-2 hover:skeui-scale-110",
+            classNames?.navButtons
+          )}
         >
           {navButtons.next}
         </button>
@@ -218,31 +223,31 @@ const CarouselSlide = ({
   };
 
   return (
-    <div className="ui">
-      <div className="ui-flex ui-flex-col ui-justify-center">
-        <div className="ui-flex ui-justify-center">
-          <SkeuCard
-            className={cn("ui-rounded", classNames?.card)}
+    <div className="skeui">
+      <div className="skeui-flex skeui-flex-col skeui-justify-center">
+        <div className="skeui-flex skeui-justify-center">
+          <Card
+            className={cn("skeui-rounded", classNames?.card)}
             aesthetic={aesthetic}
             {...props}
           >
-            <div className="ui-size-fit">
+            <div className="skeui-size-fit">
               <div
-                className="ui-p-3 ui-rounded-lg ui-overflow-clip ui-relative ui-h-[80svh] ui-w-[80svw] sm:ui-size-fit"
+                className="skeui-p-3 skeui-rounded-lg skeui-overflow-clip skeui-relative skeui-h-[80svh] skeui-w-[80svw] sm:skeui-size-fit"
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
                 onTouchEnd={onTouchEnd}
               >
                 <div
-                  className="ui-size-full ui-place-content-start sm:ui-place-content-end ui-grid ui-grid-cols-1 ui-gap-2"
+                  className="skeui-size-full skeui-place-content-start sm:skeui-place-content-end skeui-grid skeui-grid-cols-1 skeui-gap-2"
                   onAnimationEnd={() => setPlayExitAnimation(false)}
                 >
                   <div
-                    className="ui-flex ui-flex-col ui-items-center ui-w-full"
+                    className="skeui-flex skeui-flex-col skeui-items-center skeui-w-full"
                     style={{ height: size?.h }}
                   >
                     <div
-                      className={`ui-w-full ui-overflow-clip  sm:ui-place-content-end ui-relative ${getAnimationClasses(
+                      className={`skeui-w-full skeui-overflow-clip  sm:skeui-place-content-end skeui-relative ${getAnimationClasses(
                         playExitAnimation,
                         isRightSwipe
                       )}`}
@@ -256,11 +261,11 @@ const CarouselSlide = ({
                             : slides[visibleProject].mobileImage?.src ??
                               slides[visibleProject].desktopImage.src
                         }
-                        className="ui-soft-transition ui-w-full ui-h-auto ui-hover:scale-110"
+                        className="skeui-soft-transition skeui-w-full skeui-h-auto skeui-hover:scale-110"
                       />
                     </div>
                     <div
-                      className="ui-w-full ui-text-pretty ui-h-full"
+                      className="skeui-w-full skeui-text-pretty skeui-h-full"
                       style={{ maxWidth: size?.w }}
                     >
                       {slides[visibleProject].slideContent}
@@ -269,11 +274,11 @@ const CarouselSlide = ({
                 </div>
               </div>
             </div>
-          </SkeuCard>
+          </Card>
         </div>
         <div
           className={cn(
-            "ui-flex ui-gap-1 ui-justify-center ui-p-2",
+            "skeui-flex skeui-gap-1 skeui-justify-center skeui-p-2",
             classNames?.indicators
           )}
         >
@@ -300,12 +305,12 @@ const getAnimationClasses = (
   isRightSwipe: boolean
 ) => {
   return playExitAnimation && isRightSwipe
-    ? " ui-animate-rightSwipeExit"
+    ? " skeui-animate-rightSwipeExit"
     : playExitAnimation && !isRightSwipe
-    ? " ui-animate-leftSwipeExit"
+    ? " skeui-animate-leftSwipeExit"
     : !playExitAnimation && isRightSwipe
-    ? " ui-animate-rightSwipeEnter ui-opacity-0"
+    ? " skeui-animate-rightSwipeEnter skeui-opacity-0"
     : !playExitAnimation && !isRightSwipe
-    ? " ui-animate-leftSwipeEnter ui-opacity-0"
+    ? " skeui-animate-leftSwipeEnter skeui-opacity-0"
     : "";
 };

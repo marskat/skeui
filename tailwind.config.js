@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  important: ".ui",
-  prefix: "ui-",
+  important: ".skeui",
+  prefix: "skeui-",
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./.storybook/**/*.{js,ts,jsx,tsx,mdx}",

@@ -41,15 +41,16 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     children: (
-      <div className="h-full">
-        <div className="ui-text-2xl">glass panel</div>
-        <div className="ui-text-md">
+      <div className="skeui-h-full">
+        <div className="skeui-text-2xl">glass panel</div>
+        <div className="skeui-text-md">
           styles can be overridden with className, but glamo comes with tasteful
           defaults! 💃
         </div>
       </div>
     ),
-    className: "ui-bg-[#effbf9]/20 ui-text-black ui-p-8 ui-text-center",
+    className:
+      "skeui-bg-[#effbf9]/20 skeui-text-black skeui-p-8 skeui-text-center",
     rounded: ["b-full", "t-full"],
     neumorphic: true,
   },
@@ -58,8 +59,8 @@ export const Secondary: Story = {
   args: {
     children: (
       <div>
-        <div className="ui-text-2xl">glass panel wrapped around a grid</div>
-        <div className="ui-grid ui-grid-cols-3 ui-gap-2 [&>div]:ui-border [&>div]:ui-border-slate-800 [&>div]:ui-size-fit [&>div]:ui-p-2 ui-justify-items-center">
+        <div className="skeui-text-2xl">glass panel wrapped around a grid</div>
+        <div className="skeui-grid skeui-grid-cols-3 skeui-gap-2 [&>div]:skeui-border [&>div]:skeui-border-slate-800 [&>div]:skeui-size-fit [&>div]:skeui-p-2 skeui-justify-items-center">
           <div>💎</div>
           <div>💎</div>
           <div>💎</div>
@@ -69,7 +70,8 @@ export const Secondary: Story = {
         </div>
       </div>
     ),
-    className: "ui-bg-[#effbf9]/20 ui-text-black ui-p-8 ui-text-center",
+    className:
+      "skeui-bg-[#effbf9]/20 skeui-text-black skeui-p-8 skeui-text-center",
     rounded: ["b-full", "t-full"],
     neumorphic: true,
   },

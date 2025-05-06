@@ -1,5 +1,5 @@
 {
-  "name": "glamo",
+  "name": "@marskat/skeui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,7 +15,7 @@
       "require": "./dist/styles.css",
       "default": "./dist/styles.css"
     },
-    "./ui-library.css": "./dist/ui-library.css"
+    "./skeui-library.css": "./dist/skeui-library.css"
   },
   "files": [
     "dist"
@@ -23,7 +23,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "build:css": "tailwindcss -c tailwind.config.js -i ./src/tailwind-entry.css -o ./dist/ui-library.css --minify",
+    "build:css": "tailwindcss -c tailwind.config.js -i ./src/tailwind-entry.css -o ./dist/skeui-library.css --minify",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "concurrently \"npm run storybook:css\" \"storybook dev -p 6006\"",

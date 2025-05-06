@@ -3,34 +3,34 @@ import cn from "classnames";
 const aesthetics = ["glassmorphic", "neumorphic"] as const;
 export type Aesthetic = (typeof aesthetics)[number];
 
-export type SkeuCardProps = React.ComponentProps<"div"> & {
+export type CardProps = React.ComponentProps<"div"> & {
   aesthetic?: Aesthetic;
   inset?: boolean;
 };
 /**
- * A skeumorphic card component.
+ * A skeuomorphic card component.
  *
  * Wrap any element in this component to render it on the card.
  *
- * @property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
+ * @property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
  *
  * This type extends all standard HTML `<div>` element attributes.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div
  */
-export const SkeuCard = ({
+export const Card = ({
   children,
   className,
   inset = false,
   aesthetic = "glassmorphic",
   ...props
-}: SkeuCardProps) => {
+}: CardProps) => {
   return (
-    <div className="ui">
+    <div className="skeui skeui-size-full">
       {aesthetic === "glassmorphic" && (
         <div
           className={cn(
-            "ui-backdrop-blur-2xl ui-soft-transition ui-gp-inside-shadow ui-size-full ui-relative",
+            "skeui-backdrop-blur-2xl skeui-soft-transition skeui-gp-inside-shadow skeui-size-full skeui-relative",
             className
           )}
           {...props}
@@ -38,7 +38,7 @@ export const SkeuCard = ({
           {children}
           <div
             className={cn(
-              "ui-size-full ui-absolute ui-top-0 ui-left-0 ui-mt-0.5 ui-ml-0.5 ui-opacity-10",
+              "skeui-size-full skeui-absolute skeui-top-0 skeui-left-0 skeui-mt-0.5 skeui-ml-0.5 skeui-opacity-10",
               className
             )}
             {...props}
@@ -52,17 +52,17 @@ export const SkeuCard = ({
           {!inset && (
             <div
               className={cn(
-                "before:ui-nm-outside-highlight before:ui-rounded-t before:ui-rounded-b before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative"
+                "before:skeui-nm-outside-highlight before:skeui-rounded-t before:skeui-rounded-b before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative"
               )}
             >
               <div
                 className={cn(
-                  "before:ui-nm-outside-shadow before:ui-rounded-t before:ui-rounded-b before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative"
+                  "before:skeui-nm-outside-shadow before:skeui-rounded-t before:skeui-rounded-b before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative"
                 )}
               >
                 <div
                   className={cn(
-                    "ui-size-full ui-p-2 ui-rounded ui-rounded-t ui-rounded-b"
+                    "skeui-size-full skeui-p-2 skeui-rounded skeui-rounded-t skeui-rounded-b"
                   )}
                 >
                   {children}
@@ -71,8 +71,8 @@ export const SkeuCard = ({
             </div>
           )}
           {inset && (
-            <div className="before:ui-nm-inside-shadow before:ui-rounded before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-full ui-relative">
-              <div className={cn("ui-size-full ui-p-2 ui-rounded")}>
+            <div className="before:skeui-nm-inside-shadow before:skeui-rounded before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative">
+              <div className={cn("skeui-size-full skeui-p-2 skeui-rounded")}>
                 {children}
               </div>
             </div>

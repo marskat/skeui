@@ -1,1 +1,0 @@
-export { SkeuCard } from "./SkeuCard";

@@ -1,7 +1,7 @@
+export { Button } from "./components/Button";
+export { Card } from "./components/Card";
+export type { Aesthetic } from "./components/Card/card";
+export { Carousel } from "./components/Carousel";
+export type { Slide } from "./components/Carousel/Carousel";
 export { GlassPanel } from "./components/GlassPanel";
-export { SkeuButton } from "./components/SkeuButton";
-export { SkeuCard } from "./components/SkeuCard";
-export type { Aesthetic } from "./components/SkeuCard/SkeuCard";
-export { SkeuCarousel } from "./components/SkeuCarousel";
-export type { Slide } from "./components/SkeuCarousel/SkeuCarousel";
-export { SkeuNavBar } from "./components/SkeuNavBar";
+export { NavBar } from "./components/NavBar";

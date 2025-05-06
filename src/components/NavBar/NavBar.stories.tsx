@@ -5,11 +5,11 @@ import {
   HiOutlineNewspaper,
   HiOutlineUser,
 } from "react-icons/hi2";
-import { SkeuNavBar } from "./SkeuNavBar";
+import { NavBar } from "./NavBar";
 const aestheticOptions = ["glassmorphic", "neumorphic"] as const; // TODO: put these somewhere, quit importing them each time
 
 const meta = {
-  component: SkeuNavBar,
+  component: NavBar,
   argTypes: {
     aesthetic: {
       control: {
@@ -23,26 +23,26 @@ const meta = {
     placement: "bottom",
     aesthetic: "glassmorphic",
   },
-} satisfies Meta<typeof SkeuNavBar>;
+} satisfies Meta<typeof NavBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Glassmorphic: Story = {
   args: {
-    className: "ui-text-slate-500 ui-bg-slate-200/50",
+    className: "skeui-text-slate-500 skeui-bg-slate-200/50",
     children: (
       <>
-        <button className="ui-btn-nav" title="home">
+        <button className="skeui-btn-nav" title="home">
           <HiOutlineHome />
         </button>
-        <button className="ui-btn-nav" title="about">
+        <button className="skeui-btn-nav" title="about">
           <HiOutlineUser />
         </button>
-        <button className="ui-btn-nav" title="blog">
+        <button className="skeui-btn-nav" title="blog">
           <HiOutlineNewspaper />
         </button>
-        <button className="ui-btn-nav" title="settings">
+        <button className="skeui-btn-nav" title="settings">
           <HiOutlineCog6Tooth />
         </button>
       </>
@@ -52,19 +52,19 @@ export const Glassmorphic: Story = {
 };
 export const Neumorphic: Story = {
   args: {
-    className: "ui-text-slate-500 ui-bg-slate-200/50",
+    className: "skeui-text-slate-500 skeui-bg-slate-200/50",
     children: (
       <>
-        <button className="ui-btn-nav" title="home">
+        <button className="skeui-btn-nav" title="home">
           <HiOutlineHome />
         </button>
-        <button className="ui-btn-nav" title="about">
+        <button className="skeui-btn-nav" title="about">
           <HiOutlineUser />
         </button>
-        <button className="ui-btn-nav" title="blog">
+        <button className="skeui-btn-nav" title="blog">
           <HiOutlineNewspaper />
         </button>
-        <button className="ui-btn-nav" title="settings">
+        <button className="skeui-btn-nav" title="settings">
           <HiOutlineCog6Tooth />
         </button>
       </>

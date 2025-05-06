@@ -21,14 +21,14 @@
 
 ## Installation
 
-1. Run `npm install glamo`
-2. Import styles `import "glamo/ui-library.css";`
+1. Run `npm install @marskat/skeui`
+2. Import styles `import "@marskat/skeui/skeui-library.css";`
 
 ## Usage
 
 ```typescript
 import { GlassPanel } from "glamo";
-import "glamo/ui-library.css";
+import "@marskat/skeui/skeui-library.css";
 
 export default function Home() {
   return (
@@ -47,11 +47,11 @@ export default function Home() {
 
 ## Button
 
-A skeumorphic button component.
+A skeuomorphic button component.
 
 Wrap any element in this component to render it on the button.
 
-@property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+@property {Aesthetic} [aesthetic] - [Optional] skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
 
 This type extends all standard HTML `<button>` element attributes.
 (See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button)
@@ -59,25 +59,25 @@ This type extends all standard HTML `<button>` element attributes.
 ### Example Usage
 
 ```typescript
-import { SkeuButton } from "glamo";
-import "glamo/ui-library.css";
+import { Button } from "@marskat/skeui";
+import "@marskat/skeui/skeui-library.css";
 
 export default function Home() {
   return (
-    <SkeuButton aesthetic="neumorphic">
+    <Button aesthetic="neumorphic">
       <div className="p-3 text-black bg-white">Click me</div>
-    </SkeuButton>
+    </Button>
   );
 }
 ```
 
 ## Card
 
-A skeumorphic card component.
+A skeuomorphic card component.
 
 Wrap any element in this component to render it on the card.
 
-@property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+@property {Aesthetic} [aesthetic] - [Optional] skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
 
 @property {boolean} [inset] - [Optional] Whether or not the card should be inset. Default is `false`.
 
@@ -87,18 +87,18 @@ This type extends all standard HTML `<button>` element attributes.
 ### Example Usage
 
 ```typescript
-import { SkeuCard } from "glamo";
-import "glamo/ui-library.css";
+import { Card } from "@marskat/skeui";
+import "@marskat/skeui/skeui-library.css";
 
 export default function Home() {
   return (
-    <SkeuCard className="p-3" aesthetic="neumorphic">
+    <Card className="p-3" aesthetic="neumorphic">
       <div>
         <div className="text-lg">card example</div>
         <div className="text-md">this is an example of a neumorphic card</div>
         <div className="text-3xl text-center">😊</div>
       </div>
-    </SkeuCard>
+    </Card>
   );
 }
 ```
@@ -109,7 +109,7 @@ A carousel component.
 
 @property {Slide[]} slides - The slides to display.
 
-@property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+@property {Aesthetic} [aesthetic] - [Optional] skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
 
 @property {{h:string, w:string}} [size] - [Optional] Size of the card in any CSS-acceptable string. This must be a static size to ensure the navigation buttons don't move when cycling through slides. Default is `{ h: '28rem', w:'24rem' }`.
 
@@ -122,8 +122,8 @@ A carousel component.
 ### Example Usage
 
 ```typescript
-import { SkeuCarousel } from "glamo";
-import "glamo/ui-library.css";
+import { Carousel } from "@marskat/skeui";
+import "@marskat/skeui/skeui-library.css";
 
 const demoSlides: Slide[] = [
   {
@@ -156,17 +156,17 @@ const demoSlides: Slide[] = [
 ];
 
 export default function Home() {
-  return <SkeuCarousel slides={demoSlides} aesthetic="glassmorphic" />;
+  return <Carousel slides={demoSlides} aesthetic="glassmorphic" />;
 }
 ```
 
 ## Navigation Bar
 
-A skeumorphic, sticky navigation bar component.
+A skeuomorphic, sticky navigation bar component.
 
 @property {"bottom" | "left" | "top" | "right"} [placement] - Where to place the navigation bar. Default is `bottom`.
 
-@property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+@property {Aesthetic} [aesthetic] - [Optional] skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
 
 Wrap any element in this component to render it on the menu.
 
@@ -176,8 +176,8 @@ This type extends all standard HTML `<button>` element attributes.
 ### Example Usage
 
 ```typescript
-import { SkeuNavBar } from "glamo";
-import "glamo/ui-library.css";
+import { NavBar } from "@marskat/skeui";
+import "@marskat/skeui/skeui-library.css";
 
 import {
   HiOutlineCog6Tooth,
@@ -188,7 +188,7 @@ import {
 
 export default function Home() {
   return (
-    <SkeuNavBar>
+    <NavBar>
       <>
         <button title="home">
           <HiOutlineHome />
@@ -203,7 +203,7 @@ export default function Home() {
           <HiOutlineCog6Tooth />
         </button>
       </>
-    </SkeuNavBar>
+    </NavBar>
   );
 }
 ```
@@ -212,7 +212,7 @@ export default function Home() {
 
 ## What's glassmorphism? What's neumorphism?
 
-**Glassmorphism** and **neumorphism** are both modern UI design styles that have seen a rise in popularity over the last few years. Glassmorphism is "_characterized by panels with a blurred translucency effect over background elements, mimicking frosted glass._" [[1]](https://en.wiktionary.org/wiki/glassmorphism) Neumorphism is "_commonly identified by a soft and light look (for which it is sometimes referred to as soft UI) with elements that appear to protrude from or dent into the background rather than float on top of it._" [[2]](https://en.wikipedia.org/wiki/Neumorphism) Both of these design styles are offshoots of skeumorphism, which is the implementation of "_interface objects that mimic their real-world counterparts in how they appear and/or how the user can interact with them._" [[3]](https://www.interaction-design.org/literature/topics/skeuomorphism?srsltid=AfmBOorEpr6vzpMfCrIckqfNDVr6PyhonAColy1DuEb3lGa8YVlJS9-Q)
+**Glassmorphism** and **neumorphism** are both modern UI design styles that have seen a rise in popularity over the last few years. Glassmorphism is "_characterized by panels with a blurred translucency effect over background elements, mimicking frosted glass._" [[1]](https://en.wiktionary.org/wiki/glassmorphism) Neumorphism is "_commonly identified by a soft and light look (for which it is sometimes referred to as soft UI) with elements that appear to protrude from or dent into the background rather than float on top of it._" [[2]](https://en.wikipedia.org/wiki/Neumorphism) Both of these design styles are offshoots of skeuomorphism, which is the implementation of "_interface objects that mimic their real-world counterparts in how they appear and/or how the user can interact with them._" [[3]](https://www.interaction-design.org/literature/topics/skeuomorphism?srsltid=AfmBOorEpr6vzpMfCrIckqfNDVr6PyhonAColy1DuEb3lGa8YVlJS9-Q)
 
 Essentially, it's when the thing looks like the thing.
 

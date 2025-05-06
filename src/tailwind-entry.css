@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @layer utilities {
-  .ui-nm-outside-shadow {
+  .skeui-nm-outside-shadow {
     box-shadow: 0.15em 0.15em calc(0.1em * 8) rgb(39, 48, 67, 0.3);
     mix-blend-mode: multiply;
   }
-  .ui-nm-outside-highlight {
+  .skeui-nm-outside-highlight {
     box-shadow: -0.2em -0.2em calc(0.1em * 8) #fefff9;
     mix-blend-mode: soft-light;
   }
-  .ui-nm-inside-shadow {
+  .skeui-nm-inside-shadow {
     box-shadow: inset 0.3em 0.3em calc(0.3em * 2) 0 rgb(39, 48, 67, 0.15),
       inset 0 0 calc(0.4em * 2) rgb(39, 48, 67, 0.15);
     mix-blend-mode: multiply;
@@ -19,19 +19,19 @@
 }
 
 @layer components {
-  .ui-gp-inside-shadow {
+  .skeui-gp-inside-shadow {
     box-shadow: inset 0.3em 0.3em 4em 0 rgba(255, 255, 251, 0.2),
       inset 0 0 2em rgba(255, 255, 251, 0.2);
   }
-  .ui-btn-carousel-nav {
-    @apply ui-hidden sm:ui-block ui-self-center ui-z-40 ui-text-3xl ui-rounded-full ui-backdrop-blur-lg hover:ui-scale-150 ui-bg-slate-800;
+  .skeui-btn-carousel-nav {
+    @apply skeui-hidden sm:skeui-block skeui-self-center skeui-z-40 skeui-text-3xl skeui-rounded-full skeui-backdrop-blur-lg hover:skeui-scale-150 skeui-bg-slate-800;
   }
 
-  .ui-btn {
-    @apply ui-px-4 ui-py-2 ui-rounded-full ui-text-slate-500 ui-bg-slate-500/80 hover:ui-scale-110;
+  .skeui-btn {
+    @apply skeui-px-4 skeui-py-2 skeui-rounded-full skeui-text-slate-500 skeui-bg-slate-500/80 hover:skeui-scale-110;
   }
 
-  .ui-btn-nav {
-    @apply ui-text-4xl ui-w-fit ui-text-slate-500 hover:ui-bg-slate-600/50 ui-rounded-full ui-p-2;
+  .skeui-btn-nav {
+    @apply skeui-text-4xl skeui-w-fit skeui-text-slate-500 hover:skeui-bg-slate-600/50 skeui-rounded-full skeui-p-2;
   }
 }

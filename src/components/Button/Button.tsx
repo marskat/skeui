@@ -1,9 +1,9 @@
 import cn from "classnames";
 import { useIsButtonActive } from "../../hooks/useIsButtonActive";
 import { useIsButtonHover } from "../../hooks/useIsButtonHover";
-import { Aesthetic } from "../SkeuCard/SkeuCard";
+import { Aesthetic } from "../Card/card";
 
-export type SkeuButtonProps = React.ComponentProps<"button"> & {
+export type ButtonProps = React.ComponentProps<"button"> & {
   aesthetic?: Aesthetic;
 };
 
@@ -13,37 +13,37 @@ export type SkeuButtonProps = React.ComponentProps<"button"> & {
  *
  * Wrap any element in this component to render it on the button.
  *
- * @property {Aesthetic} [aesthetic] - [Optional] Skeumorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
+ * @property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
  *
  * This type extends all standard HTML `<button>` element attributes.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button
  */
-export const SkeuButton = ({
+export const Button = ({
   children,
   className,
   aesthetic = "neumorphic",
   ...props
-}: SkeuButtonProps) => {
+}: ButtonProps) => {
   const [isActive, eventHandlers] = useIsButtonActive();
   const [isHover, hoverEventHandlers] = useIsButtonHover();
 
   return (
-    <div className="ui">
+    <div className="skeui">
       {aesthetic === "neumorphic" && (
         <div
           className={cn(
-            !isActive ? "before:ui-nm-outside-highlight" : "",
-            "before:ui-rounded-full before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] ui-inline-block ui-size-fit ui-relative ui-pointer-events-none"
+            !isActive ? "before:skeui-nm-outside-highlight" : "",
+            "before:skeui-rounded-full before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-fit skeui-relative skeui-pointer-events-none"
           )}
         >
           <div
             className={cn(
               isActive
-                ? "before:ui-nm-inside-shadow"
-                : "before:ui-nm-outside-shadow",
-              "before:ui-rounded-full before:ui-block before:ui-absolute before:ui-inset-0 before:ui-content-[''] before:ui-z-10",
-              "ui-inline-block ui-size-fit ui-relative ui-pointer-events-none"
+                ? "before:skeui-nm-inside-shadow"
+                : "before:skeui-nm-outside-shadow",
+              "before:skeui-rounded-full before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] before:skeui-z-10",
+              "skeui-inline-block skeui-size-fit skeui-relative skeui-pointer-events-none"
             )}
           >
             <button
@@ -51,8 +51,8 @@ export const SkeuButton = ({
               {...eventHandlers}
               {...hoverEventHandlers}
               className={cn(
-                "ui-size-fit ui-p-2 ui-rounded-full ui-cursor-pointer ui-pointer-events-auto ui-relative ui-z-0",
-                { "ui-brightness-95": isHover }, // TODO: use isHover to do better styling
+                "skeui-size-fit skeui-p-2 skeui-rounded-full skeui-cursor-pointer skeui-pointer-events-auto skeui-relative skeui-z-0",
+                { "skeui-brightness-95": isHover }, // TODO: use isHover to do better styling
                 className
               )}
             >
