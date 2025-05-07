@@ -27,17 +27,15 @@
 ## Usage
 
 ```typescript
-import { GlassPanel } from "glamo";
+import { Card } from "@marskat/skeui";
 import "@marskat/skeui/skeui-library.css";
 
 export default function Home() {
   return (
     <div className="h-lvh bg-blue-950">
-      <GlassPanel className="bg-base/20 " rounded={["b-full, t-full"]}>
-        <div className="text-md">
-          look at my awesome, neumorphic glass panel! 💃
-        </div>
-      </GlassPanel>
+      <Card className="bg-base/20">
+        <div className="text-md">look at my awesome glass card! 💃</div>
+      </Card>
     </div>
   );
 }
@@ -80,6 +78,8 @@ Wrap any element in this component to render it on the card.
 @property {Aesthetic} [aesthetic] - [Optional] skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
 
 @property {boolean} [inset] - [Optional] Whether or not the card should be inset. Default is `false`.
+
+@property {string} [fullyRounded] - [Optional] Applies full rounding. Default is `false`.
 
 This type extends all standard HTML `<button>` element attributes.
 (See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button)

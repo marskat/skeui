@@ -51,7 +51,7 @@ export const Button = ({
               {...eventHandlers}
               {...hoverEventHandlers}
               className={cn(
-                "skeui-size-fit skeui-p-2 skeui-rounded-full skeui-cursor-pointer skeui-pointer-events-auto skeui-relative skeui-z-0",
+                "skeui-size-fit skeui-p-2 skeui-rounded-full skeui-cursor-pointer skeui-pointer-events-auto skeui-relative skeui-z-0 skeui-hard-transition",
                 { "skeui-brightness-95": isHover }, // TODO: use isHover to do better styling
                 className
               )}
@@ -61,7 +61,31 @@ export const Button = ({
           </div>
         </div>
       )}
-      {aesthetic === "glassmorphic" && <div></div>}
+      {aesthetic === "glassmorphic" && (
+        <div
+          className={cn(
+            "before:skeui-gp-outside-shadow before:skeui-rounded-full before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] before:skeui-z-10 before:skeui-hard-transition",
+            "skeui-inline-block skeui-size-fit skeui-relative skeui-pointer-events-none skeui-hard-transition",
+            `${
+              isActive
+                ? "skeui-translate-y-[0.05rem] before:skeui-gp-outside-shadow-intense"
+                : "hover:-skeui-translate-y-[0.05rem] before:skeui-gp-outside-shadow-faint"
+            }`
+          )}
+        >
+          <button
+            {...props}
+            {...eventHandlers}
+            {...hoverEventHandlers}
+            className={cn(
+              `skeui-backdrop-blur-2xl skeui-hard-transition skeui-gp-inside-shadow skeui-size-fit skeui-overflow-clip skeui-rounded-full skeui-cursor-pointer skeui-pointer-events-auto skeui-relative`,
+              className
+            )}
+          >
+            {children}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

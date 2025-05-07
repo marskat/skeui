@@ -16,6 +16,24 @@
       inset 0 0 calc(0.4em * 2) rgb(39, 48, 67, 0.15);
     mix-blend-mode: multiply;
   }
+  .skeui-gp-outside-shadow-faint {
+    box-shadow: 0.15em 0.15em calc(0.1em * 8) rgb(39, 48, 67, 0.1);
+    mix-blend-mode: multiply;
+  }
+  .skeui-gp-outside-shadow {
+    box-shadow: 0.15em 0.15em calc(0.1em * 8) rgb(39, 48, 67, 0.2);
+    mix-blend-mode: multiply;
+  }
+  .skeui-gp-outside-shadow-intense {
+    box-shadow: 0.15em 0.15em calc(0.1em * 8) rgb(39, 48, 67, 0.3);
+    mix-blend-mode: multiply;
+  }
+  .skeui-soft-transition {
+    @apply skeui-transition skeui-ease-in-out skeui-delay-150 skeui-duration-300;
+  }
+  .skeui-hard-transition {
+    @apply skeui-transition skeui-ease-in-out skeui-duration-150;
+  }
 }
 
 @layer components {
