@@ -50,6 +50,8 @@ Wrap any element in this component to render it on the button.
 
 @property {Aesthetic} [aesthetic] - [Optional] skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
 
+@property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes. Default is `false`.
+
 This type extends all standard HTML `<button>` element attributes.
 (See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button)
 
@@ -75,6 +77,8 @@ A skeuomorphic card component.
 Wrap any element in this component to render it on the card.
 
 @property {Aesthetic} [aesthetic] - [Optional] skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+
+@property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes. Default is `false`.
 
 @property {boolean} [inset] - [Optional] Whether or not the card should be inset. Default is `false`.
 
@@ -117,6 +121,8 @@ A carousel component.
 @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation. Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
 
 @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy. Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
+
+@property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes. Default is `false`.
 
 ### Example Usage
 
@@ -166,6 +172,8 @@ A skeuomorphic, sticky navigation bar component.
 @property {"bottom" | "left" | "top" | "right"} [placement] - Where to place the navigation bar. Default is `bottom`.
 
 @property {Aesthetic} [aesthetic] - [Optional] skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+
+@property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes. Default is `false`.
 
 Wrap any element in this component to render it on the menu.
 
