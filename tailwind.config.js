@@ -50,12 +50,31 @@ export default {
             opacity: "50%",
           },
         },
+        toggleright: {
+          from: {
+            transform: "translateX(0%)",
+          },
+          to: {
+            transform: "translateX(100%)",
+          },
+        },
+        toggleleft: {
+          from: {
+            transform: "translateX(0%)",
+          },
+          to: {
+            transform: "translateX(-100%)",
+          },
+        },
       },
+
       animation: {
         leftSwipeExit: "leftSwipeExit 0.2s linear forwards",
         leftSwipeEnter: "leftSwipeEnter 0.1s 0.1s linear forwards",
         rightSwipeEnter: "rightSwipeEnter 0.1s 0.1s linear forwards",
         rightSwipeExit: "rightSwipeExit 0.2s linear forwards",
+        toggleToRight: "toggleright 0.1s linear forwards",
+        toggleToLeft: "toggleleft 0.1s linear forwards",
       },
     },
   },

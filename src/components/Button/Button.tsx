@@ -5,6 +5,7 @@ import { Aesthetic } from "../Card/card";
 
 export type ButtonProps = React.ComponentProps<"button"> & {
   aesthetic?: Aesthetic;
+  isDarkMode?: boolean;
 };
 
 // TODO:add glassmorphic and make it default
@@ -14,7 +15,7 @@ export type ButtonProps = React.ComponentProps<"button"> & {
  * Wrap any element in this component to render it on the button.
  *
  * @property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
- *
+ * @property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes.  Default is `false`.
  * This type extends all standard HTML `<button>` element attributes.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button
@@ -23,6 +24,7 @@ export const Button = ({
   children,
   className,
   aesthetic = "neumorphic",
+  isDarkMode = false,
   ...props
 }: ButtonProps) => {
   const [isActive, eventHandlers] = useIsButtonActive();
@@ -33,7 +35,11 @@ export const Button = ({
       {aesthetic === "neumorphic" && (
         <div
           className={cn(
-            !isActive ? "before:skeui-nm-outside-highlight" : "",
+            !isActive
+              ? isDarkMode
+                ? "before:skeui-nm-outside-highlight-dark"
+                : "before:skeui-nm-outside-highlight"
+              : "",
             "before:skeui-rounded-full before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-fit skeui-relative skeui-pointer-events-none"
           )}
         >
@@ -41,6 +47,8 @@ export const Button = ({
             className={cn(
               isActive
                 ? "before:skeui-nm-inside-shadow"
+                : isDarkMode
+                ? "before:skeui-nm-outside-shadow-dark"
                 : "before:skeui-nm-outside-shadow",
               "before:skeui-rounded-full before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] before:skeui-z-10",
               "skeui-inline-block skeui-size-fit skeui-relative skeui-pointer-events-none"

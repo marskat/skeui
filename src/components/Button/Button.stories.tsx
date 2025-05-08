@@ -15,6 +15,7 @@ const meta = {
   },
   args: {
     aesthetic: "glassmorphic",
+    isDarkMode: true,
   },
 } satisfies Meta<typeof Button>;
 
@@ -24,14 +25,14 @@ type Story = StoryObj<typeof meta>;
 export const Glassmorphic: Story = {
   args: {
     children: <div>button</div>,
-    className: "skeui-p-3 skeui-text-black",
+    className: "skeui-p-3 skeui-text-slate-800",
     aesthetic: "glassmorphic",
   },
 };
 export const Neumorphic: Story = {
   args: {
     children: <div>button</div>,
-    className: "skeui-p-3 skeui-text-black",
+    className: "skeui-p-3 skeui-text-slate-400",
     aesthetic: "neumorphic",
   },
 };

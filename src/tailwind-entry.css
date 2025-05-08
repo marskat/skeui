@@ -4,11 +4,19 @@
 
 @layer utilities {
   .skeui-nm-outside-shadow {
-    box-shadow: 0.15em 0.15em calc(0.1em * 8) rgb(39, 48, 67, 0.3);
+    box-shadow: 0.15em 0.15em calc(0.1em * 8) rgba(39, 48, 67, 0.1);
+    mix-blend-mode: multiply;
+  }
+  .skeui-nm-outside-shadow-dark {
+    box-shadow: 0.15em 0.15em calc(0.1em * 8) rgb(39, 48, 67, 0.15);
     mix-blend-mode: multiply;
   }
   .skeui-nm-outside-highlight {
-    box-shadow: -0.2em -0.2em calc(0.1em * 8) #fefff9;
+    box-shadow: -0.3em -0.3em calc(0.1em * 4) #faffe1;
+    mix-blend-mode: soft-light;
+  }
+  .skeui-nm-outside-highlight-dark {
+    box-shadow: -0.3em -0.3em calc(0.1em * 4) #fefff948;
     mix-blend-mode: soft-light;
   }
   .skeui-nm-inside-shadow {

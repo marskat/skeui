@@ -1,7 +1,5 @@
 "use client";
 import cn from "classnames";
-// import { Dispatch, SetStateAction } from "react";
-// import { Toggle } from ".";
 import { Aesthetic, Card } from "../Card/card";
 
 // type NavBarProps = {
@@ -14,13 +12,14 @@ import { Aesthetic, Card } from "../Card/card";
 type NavBarProps = React.ComponentProps<"div"> & {
   placement?: "bottom" | "left" | "top" | "right";
   aesthetic?: Aesthetic;
+  isDarkMode?: boolean;
 };
-// TODO: add neumorphic
 /**
  * A skeuomorphic, sticky navigation bar component.
  *
  * @property {"bottom" | "left" | "top" | "right"} [placement] - Where to place the navigation bar.  Default is `bottom`.
  * @property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
+ * @property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes.  Default is `false`.
  *
  * This type extends all standard HTML <div> element attributes.
  *
@@ -31,6 +30,7 @@ export const NavBar = ({
   className,
   placement = "bottom",
   aesthetic = "glassmorphic",
+  isDarkMode = false,
   ...props
 }: NavBarProps) => {
   return (
@@ -107,7 +107,8 @@ export const NavBar = ({
             <div className="skeui-size-fit">
               <Card
                 aesthetic="glassmorphic"
-                className="skeui-size-fit skeui-gp-outside-shadow"
+                className="skeui-size-fit skeui-gp-outside-shadow skeui-rounded-full"
+                isDarkMode={isDarkMode}
               >
                 <div className="skeui-flex skeui-p-2 skeui-gap-6">
                   <div
@@ -206,6 +207,7 @@ export const NavBar = ({
                 aesthetic="neumorphic"
                 className="skeui-size-fit"
                 fullyRounded={true}
+                isDarkMode={isDarkMode}
               >
                 <div className="skeui-flex skeui-gap-6 skeui-size-fit">
                   <div

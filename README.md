@@ -1,15 +1,14 @@
-# Glamo - A React Component Library for **Gla**ss**mo**rphism and Neumorphism
-
-> [!CAUTION]
->
-> ## Glamo is not officially released yet! It is currently **not recommended** that you install it.
->
-> ### More documentation will be available when Glamo is officially released. For now, I am just testing and stuff.
+# SkeUi - A React Component Library for Skeuomorphic Aesthetics by marskat
 
 [![npm](https://img.shields.io/npm/v/@marskat/glamo?&style=badge&logo=npm&logoColor=white&color=black)]()
 [![Github](https://img.shields.io/badge/Github-gray?&style=badge&logo=github&logoColor=white)](https://github.com/marskat/glamo)
 [![Storybook](https://img.shields.io/badge/Storybook-gray?&style=badge&logo=storybook&logoColor=white)](https://glamo-theta.vercel.app/)
 [![Bundlephobia](https://img.shields.io/bundlephobia/minzip/@marskat/glamo?logoColor=white&style=badge&label=Bundlephobia&logo=webpack&color=black)]()
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
+> [!NOTE]
+>
+> ### This is a personal project and is by no means a fully comprehensive UI library, but I am adding new components all the time! If there's any specific component you would like to see included, feel free to let me know!
 
 # Contents
 
@@ -208,15 +207,45 @@ export default function Home() {
 }
 ```
 
+## Toggle
+
+A skeuomorphic toggle component.
+
+@property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+
+@property {boolean} [isOn] - [Optional] Controls the toggle's on/off position. Default is `false`.
+
+@property {React.Dispatch<React.SetStateAction<boolean>>} [setIsOn] - [Optional] The setState function to control isOn. No default behavior.
+
+@property {React.ReactNode} [thumb] - [Optional] The thumb component. Default is `<FaCircle />`.
+
+@property {ToggleClassnames} [classNames] - [Optional] Class name overrides for parts of the toggle anatomy. Targets available are `thumb` and `track`.
+
+This type extends all standard HTML `<button>` element attributes.
+
+@see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button
+
+### Example Usage
+
+```typescript
+import { NavBar } from "@marskat/skeui";
+import "@marskat/skeui/skeui-library.css";
+
+export default function Home() {
+  const [isOn, setIsOn] = React.useState(false);
+  return <Toggle isOn={isOn} setIsOn={setIsOn} />;
+}
+```
+
 # About
 
-## What's glassmorphism? What's neumorphism?
-
-**Glassmorphism** and **neumorphism** are both modern UI design styles that have seen a rise in popularity over the last few years. Glassmorphism is "_characterized by panels with a blurred translucency effect over background elements, mimicking frosted glass._" [[1]](https://en.wiktionary.org/wiki/glassmorphism) Neumorphism is "_commonly identified by a soft and light look (for which it is sometimes referred to as soft UI) with elements that appear to protrude from or dent into the background rather than float on top of it._" [[2]](https://en.wikipedia.org/wiki/Neumorphism) Both of these design styles are offshoots of skeuomorphism, which is the implementation of "_interface objects that mimic their real-world counterparts in how they appear and/or how the user can interact with them._" [[3]](https://www.interaction-design.org/literature/topics/skeuomorphism?srsltid=AfmBOorEpr6vzpMfCrIckqfNDVr6PyhonAColy1DuEb3lGa8YVlJS9-Q)
+## What's skeuomorphism? What's glassmorphism? What's neumorphism?
 
 Essentially, it's when the thing looks like the thing.
 
-Your computer's recycle bin is shaped like a recycle bin, your file explorer is shaped like a folder, your save icon is shaped like... uh... something people used to use before I was born.
+Your computer's recycle bin is shaped like a recycle bin, your file explorer is shaped like a folder, your save icon is shaped like a floppy disk (_whatever that is..._).
+
+**Glassmorphism** and **neumorphism** are both modern UI design styles that have seen a rise in popularity over the last few years. Glassmorphism is "_characterized by panels with a blurred translucency effect over background elements, mimicking frosted glass._" [[1]](https://en.wiktionary.org/wiki/glassmorphism) Neumorphism is "_commonly identified by a soft and light look (for which it is sometimes referred to as soft UI) with elements that appear to protrude from or dent into the background rather than float on top of it._" [[2]](https://en.wikipedia.org/wiki/Neumorphism) Both of these design styles are offshoots of skeuomorphism, which is the implementation of "_interface objects that mimic their real-world counterparts in how they appear and/or how the user can interact with them._" [[3]](https://www.interaction-design.org/literature/topics/skeuomorphism?srsltid=AfmBOorEpr6vzpMfCrIckqfNDVr6PyhonAColy1DuEb3lGa8YVlJS9-Q)
 
 Glassmorphism is the idea that "hey, wouldn't it look really cool if our interface looked like it was made of glass?" And neumorphism is the idea that "hey, it would be so sick if it looked like our UI was _popping_ out of the page?"
 

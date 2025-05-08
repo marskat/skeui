@@ -15,6 +15,7 @@ const meta = {
   args: {
     aesthetic: "glassmorphic",
     inset: false,
+    isDarkMode: true,
   },
 } satisfies Meta<typeof Card>;
 
@@ -32,7 +33,7 @@ export const Glassmorphic: SkeuCard = {
         <div className="skeui-text-3xl skeui-text-center">😊</div>
       </div>
     ),
-    className: "skeui-p-3 skeui-rounded skeui-text-slate-800",
+    className: "skeui-p-3 skeui-rounded skeui-text-slate-400",
     aesthetic: "glassmorphic",
   },
 };
@@ -47,7 +48,7 @@ export const Neumorphic: SkeuCard = {
         <div className="skeui-text-3xl skeui-text-center">😊</div>
       </div>
     ),
-    className: "skeui-p-3 skeui-rounded skeui-text-slate-800",
+    className: "skeui-rounded skeui-text-slate-400",
     aesthetic: "neumorphic",
   },
 };

@@ -44,7 +44,9 @@ const meta = {
       description: "Aesthetic style",
     },
   },
-  args: {},
+  args: {
+    isDarkMode: true,
+  },
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
@@ -54,11 +56,21 @@ export const Glassmorphic: Story = {
   args: {
     slides: demoSlides,
     aesthetic: "glassmorphic",
+    classNames: {
+      indicators: "skeui-text-slate-400",
+      navButtons: "skeui-text-slate-400",
+      card: "skeui-text-slate-400",
+    },
   },
 };
 export const Neumorphic: Story = {
   args: {
     slides: demoSlides,
     aesthetic: "neumorphic",
+    classNames: {
+      indicators: "skeui-text-slate-400",
+      navButtons: "skeui-text-slate-400",
+      card: "skeui-text-slate-400",
+    },
   },
 };

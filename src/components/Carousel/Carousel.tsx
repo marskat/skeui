@@ -77,6 +77,7 @@ export type CarouselProps = React.ComponentProps<"div"> & {
   indicators?: SlideIndicators;
   navButtons?: SlideNavButtons;
   classNames?: CarouselClassnames;
+  isDarkMode?: boolean;
 };
 /**
  * A carousel component.
@@ -87,6 +88,7 @@ export type CarouselProps = React.ComponentProps<"div"> & {
  * @property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel.  Default is `{ on: <VscCircleFilled />, off: <VscCircle /> }`.
  * @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation.  Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
  * @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy.  Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
+ * @property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes.  Default is `false`.
  */
 export const Carousel = ({
   slides,
@@ -97,6 +99,7 @@ export const Carousel = ({
     next: <HiOutlineChevronRight title="next slide" />,
   },
   classNames,
+  isDarkMode = false,
   ...props
 }: CarouselProps) => {
   const [visibleProject, setVisibleProject] = useState(0);
@@ -140,6 +143,7 @@ export const Carousel = ({
             indicators={indicators}
             classNames={classNames}
             size={size}
+            isDarkMode={isDarkMode}
             {...props}
           />
         </div>
@@ -176,6 +180,7 @@ type CarouselSlideProps = React.ComponentProps<"div"> & {
   indicators: SlideIndicators;
   classNames?: CarouselClassnames;
   aesthetic?: Aesthetic;
+  isDarkMode?: boolean;
 };
 
 const CarouselSlide = ({
@@ -191,6 +196,7 @@ const CarouselSlide = ({
   classNames,
   indicators,
   aesthetic,
+  isDarkMode,
   ...props
 }: CarouselSlideProps) => {
   const [touchStart, setTouchStart] = useState(0);
@@ -229,6 +235,7 @@ const CarouselSlide = ({
           <Card
             className={cn("skeui-rounded", classNames?.card)}
             aesthetic={aesthetic}
+            isDarkMode={isDarkMode}
             {...props}
           >
             <div className="skeui-size-fit">

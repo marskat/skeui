@@ -22,6 +22,7 @@ const meta = {
   args: {
     placement: "bottom",
     aesthetic: "glassmorphic",
+    isDarkMode: true,
   },
 } satisfies Meta<typeof NavBar>;
 

@@ -6,6 +6,7 @@ export type Aesthetic = (typeof aesthetics)[number];
 export type CardProps = React.ComponentProps<"div"> & {
   aesthetic?: Aesthetic;
   inset?: boolean;
+  isDarkMode?: boolean;
   fullyRounded?: boolean;
 };
 /**
@@ -14,6 +15,7 @@ export type CardProps = React.ComponentProps<"div"> & {
  * Wrap any element in this component to render it on the card.
  *
  * @property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
+ * @property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes.  Default is `false`.
  * @property {boolean} [inset] - [Optional] Apply neumorphic inset.  Default is `false`.
  * @property {string} [fullyRounded] - [Optional] Applies full rounding.  Default is `false`.
  *
@@ -25,6 +27,7 @@ export const Card = ({
   children,
   className,
   inset = false,
+  isDarkMode = false,
   fullyRounded = false,
   aesthetic = "glassmorphic",
   ...props
@@ -56,27 +59,39 @@ export const Card = ({
           {!inset && (
             <div
               className={cn(
-                "before:skeui-nm-outside-highlight before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative",
+                "before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative skeui-pointer-events-none",
                 `${
                   fullyRounded
                     ? "before:skeui-rounded-t-full before:skeui-rounded-b-full"
                     : "before:skeui-rounded-t before:skeui-rounded-b"
-                }`
+                }`,
+                `${
+                  isDarkMode
+                    ? "before:skeui-nm-outside-shadow-dark"
+                    : "before:skeui-nm-outside-shadow"
+                }`,
+                className
               )}
             >
               <div
                 className={cn(
-                  "before:skeui-nm-outside-shadow before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative",
+                  "before:skeui-nm-outside-highlight before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative before:skeui-z-10 skeui-pointer-events-none",
                   `${
                     fullyRounded
                       ? "before:skeui-rounded-t-full before:skeui-rounded-b-full"
                       : "before:skeui-rounded-t before:skeui-rounded-b"
-                  }`
+                  }`,
+                  `${
+                    isDarkMode
+                      ? "before:skeui-nm-outside-highlight-dark"
+                      : "before:skeui-nm-outside-highlight"
+                  }`,
+                  className
                 )}
               >
                 <div
                   className={cn(
-                    "skeui-size-full skeui-p-2 skeui-rounded skeui-rounded-t skeui-rounded-b",
+                    "skeui-size-full skeui-p-2 skeui-rounded skeui-rounded-t skeui-rounded-b skeui-z-0 skeui-pointer-events-auto",
                     `${
                       fullyRounded
                         ? "skeui-rounded-t-full skeui-rounded-b-full"
@@ -90,8 +105,22 @@ export const Card = ({
             </div>
           )}
           {inset && (
-            <div className="before:skeui-nm-inside-shadow before:skeui-rounded before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative">
-              <div className={cn("skeui-size-full skeui-p-2 skeui-rounded")}>
+            <div
+              className={cn(
+                "before:skeui-nm-inside-shadow before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative",
+                `${
+                  fullyRounded
+                    ? "before:skeui-rounded-full"
+                    : "before:skeui-rounded"
+                }`
+              )}
+            >
+              <div
+                className={
+                  (cn("skeui-size-full"),
+                  `${fullyRounded ? "skeui-rounded-full" : "skeui-rounded"}`)
+                }
+              >
                 {children}
               </div>
             </div>
