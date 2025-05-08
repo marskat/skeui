@@ -2,15 +2,19 @@
 
 SkeUi - A React Component Library for Skeuomorphic Aesthetics by marskat
 
-[![npm](https://img.shields.io/npm/v/@marskat/glamo?&style=badge&logo=npm&logoColor=white&color=black)](https://www.npmjs.com/package/@marskat/skeui)
-[![Github](https://img.shields.io/badge/Github-gray?&style=badge&logo=github&logoColor=white)](https://github.com/marskat/glamo)
-[![Storybook](https://img.shields.io/badge/Storybook-gray?&style=badge&logo=storybook&logoColor=white)](https://glamo-theta.vercel.app/)
-[![Bundlephobia](https://img.shields.io/bundlephobia/minzip/@marskat/glamo?logoColor=white&style=badge&label=Bundlephobia&logo=webpack&color=black)](https://bundlephobia.com/package/@marskat/skeui)
+[![npm](https://img.shields.io/npm/v/@marskat/skeui)](https://www.npmjs.com/package/@marskat/skeui)
+[![GitHub](https://img.shields.io/badge/GitHub-marskat/skeui-181717?logo=github)](https://github.com/marskat/skeui)
+[![Storybook](https://img.shields.io/badge/Storybook-ff4785?logo=storybook&logoColor=white)](https://glamo-theta.vercel.app/)
+[![bundlephobia](https://img.shields.io/bundlephobia/minzip/@marskat/skeui)](https://bundlephobia.com/@marskat/skeui)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 > [!NOTE]
 >
 > ### This is a personal project and is by no means a fully comprehensive UI library, but I am adding new components all the time! If there's any specific component you would like to see included, feel free to let me know!
+
+# Demo
+
+Check out the [Storybook](https://glamo-theta.vercel.app/) to play with components! (Eventually I will have a more in-depth demo site available for browsing.)
 
 # Contents
 
