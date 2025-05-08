@@ -122,9 +122,9 @@ A carousel component.
 
 @property {{h:string, w:string}} [size] - [Optional] Size of the card in any CSS-acceptable string. This must be a static size to ensure the navigation buttons don't move when cycling through slides. Default is `{ h: '28rem', w:'24rem' }`.
 
-@property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel. Default is `{ on: <VscCircleFilled />, off: <VscCircle /> }`.
+@property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel. Default is `{ on: '●', off: '○' }`.
 
-@property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation. Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
+@property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation. Default is `{prev: <div title="previous slide">&lt;</div>, next: <div title="next slide">&gt;</div>}`.
 
 @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy. Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
 
@@ -192,29 +192,14 @@ This type extends all standard HTML `<button>` element attributes.
 import { NavBar } from "@marskat/skeui";
 import "@marskat/skeui/skeui-library.css";
 
-import {
-  HiOutlineCog6Tooth,
-  HiOutlineHome,
-  HiOutlineNewspaper,
-  HiOutlineUser,
-} from "react-icons/hi2";
-
 export default function Home() {
   return (
     <NavBar>
       <>
-        <button title="home">
-          <HiOutlineHome />
-        </button>
-        <button title="about">
-          <HiOutlineUser />
-        </button>
-        <button title="blog">
-          <HiOutlineNewspaper />
-        </button>
-        <button title="settings">
-          <HiOutlineCog6Tooth />
-        </button>
+        <button title="home">🏠</button>
+        <button title="about">👤</button>
+        <button title="blog">📰</button>
+        <button title="settings">⚙️</button>
       </>
     </NavBar>
   );
@@ -231,7 +216,7 @@ A skeuomorphic toggle component.
 
 @property {React.Dispatch<React.SetStateAction<boolean>>} [setIsOn] - [Optional] The setState function to control isOn. No default behavior.
 
-@property {React.ReactNode} [thumb] - [Optional] The thumb component. Default is `<FaCircle />`.
+@property {React.ReactNode} [thumb] - [Optional] The thumb component. Default is `"⚪"`.
 
 @property {ToggleClassnames} [classNames] - [Optional] Class name overrides for parts of the toggle anatomy. Targets available are `thumb` and `track`.
 

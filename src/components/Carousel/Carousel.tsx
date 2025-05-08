@@ -1,8 +1,6 @@
 "use client";
 import cn from "classnames";
 import { Dispatch, SetStateAction, useState } from "react";
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi2";
-import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import { useIsDesktop } from "../../hooks/useIsDesktop";
 import { Aesthetic, Card } from "../Card/card";
 
@@ -85,18 +83,18 @@ export type CarouselProps = React.ComponentProps<"div"> & {
  * @property {Slide[]} slides - The slides to display.
  * @property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
  * @property {{h:string, w:string}} [size] - [Optional] Size of the card in any CSS-acceptable string.  This must be a static size to ensure the navigation buttons don't move when cycling through slides.  Default is `{ h: '28rem', w:'24rem' }`.
- * @property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel.  Default is `{ on: <VscCircleFilled />, off: <VscCircle /> }`.
- * @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation.  Default is `{prev: <HiOutlineChevronLeft title="previous slide" />, next: <HiOutlineChevronRight title="next slide" />}`.
+ * @property {SlideIndicators} [indicators] - [Optional] Indicators for the pages of the carousel.  Default is `{ on: '●', off: '○' }`.
+ * @property {SlideNavButtons} [navButtons] - [Optional] Previous and next buttons for slide navigation.  Default is `{prev: <div title="previous slide">&lt;</div>, next: <div title="next slide">&gt;</div>}`.
  * @property {CarouselClassnames} [classNames] - [Optional] Class name overrides for various parts of the carousel anatomy.  Targets available are `card`, `indicator`, `indicators`, and `navButtons`.
  * @property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes.  Default is `false`.
  */
 export const Carousel = ({
   slides,
   size = { h: "28rem", w: "24rem" },
-  indicators = { on: <VscCircleFilled />, off: <VscCircle /> },
+  indicators = { on: "●", off: "○" },
   navButtons = {
-    prev: <HiOutlineChevronLeft title="previous slide" />,
-    next: <HiOutlineChevronRight title="next slide" />,
+    prev: <div title="previous slide">&lt;</div>,
+    next: <div title="next slide">&gt;</div>,
   },
   classNames,
   isDarkMode = false,

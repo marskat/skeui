@@ -1,10 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  HiOutlineCog6Tooth,
-  HiOutlineHome,
-  HiOutlineNewspaper,
-  HiOutlineUser,
-} from "react-icons/hi2";
 import { NavBar } from "./NavBar";
 const aestheticOptions = ["glassmorphic", "neumorphic"] as const; // TODO: put these somewhere, quit importing them each time
 
@@ -13,7 +7,7 @@ const meta = {
   argTypes: {
     aesthetic: {
       control: {
-        type: "radio", // multi-select
+        type: "radio",
       },
       options: aestheticOptions,
       description: "Aesthetic style",
@@ -35,16 +29,16 @@ export const Glassmorphic: Story = {
     children: (
       <>
         <button className="skeui-btn-nav" title="home">
-          <HiOutlineHome />
+          🏠
         </button>
         <button className="skeui-btn-nav" title="about">
-          <HiOutlineUser />
+          👤
         </button>
         <button className="skeui-btn-nav" title="blog">
-          <HiOutlineNewspaper />
+          📰
         </button>
         <button className="skeui-btn-nav" title="settings">
-          <HiOutlineCog6Tooth />
+          ⚙️
         </button>
       </>
     ),
@@ -57,16 +51,16 @@ export const Neumorphic: Story = {
     children: (
       <>
         <button className="skeui-btn-nav" title="home">
-          <HiOutlineHome />
+          🏠
         </button>
         <button className="skeui-btn-nav" title="about">
-          <HiOutlineUser />
+          👤
         </button>
         <button className="skeui-btn-nav" title="blog">
-          <HiOutlineNewspaper />
+          📰
         </button>
         <button className="skeui-btn-nav" title="settings">
-          <HiOutlineCog6Tooth />
+          ⚙️
         </button>
       </>
     ),

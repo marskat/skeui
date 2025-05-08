@@ -113,7 +113,7 @@ export const NavBar = ({
                 <div className="skeui-flex skeui-p-2 skeui-gap-6">
                   <div
                     className={cn(
-                      "skeui-gap-6 skeui-justify-around ",
+                      "skeui-gap-6 skeui-justify-around",
                       {
                         "skeui-grid skeui-grid-flow-col skeui-auto-cols-max":
                           placement === "bottom" || placement === "top",

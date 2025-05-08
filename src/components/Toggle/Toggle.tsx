@@ -1,7 +1,6 @@
 "use client";
 import cn from "classnames";
 import React from "react";
-import { FaCircle } from "react-icons/fa6";
 import { Card } from "../Card";
 import { Aesthetic } from "../Card/card";
 
@@ -30,7 +29,7 @@ export type ToggleProps = React.ComponentProps<"button"> & {
  * @property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`.  Default is `glassmorphic`.
  * @property {boolean} [isOn] - [Optional] Controls the toggle's on/off position.  Default is `false`.
  * @property {React.Dispatch<React.SetStateAction<boolean>>} [setIsOn] - [Optional] The setState function to control isOn.  No default behavior.
- * @property {React.ReactNode} [thumb] - [Optional] The thumb component.  Default is `<FaCircle />`.
+ * @property {React.ReactNode} [thumb] - [Optional] The thumb component.  Default is `"⚪"`.
  * @property {ToggleClassnames} [classNames] - [Optional] Class name overrides for parts of the toggle anatomy.  Targets available are `thumb` and `track`.
  *
  * This type extends all standard HTML `<button>` element attributes.
@@ -41,7 +40,7 @@ export const Toggle = ({
   aesthetic = "glassmorphic",
   isOn = false,
   setIsOn,
-  thumb = <FaCircle />,
+  thumb = "⚪",
   classNames,
   ...props
 }: ToggleProps) => {
