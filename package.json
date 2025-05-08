@@ -5,6 +5,7 @@
     "access": "public"
   },
   "version": "1.0.2",
+  "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
