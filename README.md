@@ -1,9 +1,11 @@
-# SkeUi - A React Component Library for Skeuomorphic Aesthetics by marskat
+# @marskat/skeui
 
-[![npm](https://img.shields.io/npm/v/@marskat/glamo?&style=badge&logo=npm&logoColor=white&color=black)]()
+SkeUi - A React Component Library for Skeuomorphic Aesthetics by marskat
+
+[![npm](https://img.shields.io/npm/v/@marskat/glamo?&style=badge&logo=npm&logoColor=white&color=black)](https://www.npmjs.com/package/@marskat/skeui)
 [![Github](https://img.shields.io/badge/Github-gray?&style=badge&logo=github&logoColor=white)](https://github.com/marskat/glamo)
 [![Storybook](https://img.shields.io/badge/Storybook-gray?&style=badge&logo=storybook&logoColor=white)](https://glamo-theta.vercel.app/)
-[![Bundlephobia](https://img.shields.io/bundlephobia/minzip/@marskat/glamo?logoColor=white&style=badge&label=Bundlephobia&logo=webpack&color=black)]()
+[![Bundlephobia](https://img.shields.io/bundlephobia/minzip/@marskat/glamo?logoColor=white&style=badge&label=Bundlephobia&logo=webpack&color=black)](https://bundlephobia.com/package/@marskat/skeui)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 > [!NOTE]
