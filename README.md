@@ -1,6 +1,6 @@
 # @marskat/skeui
 
-SkeUi - A React Component Library for Skeuomorphic Aesthetics by marskat
+SkeUi - A React component library for skeuomorphic aesthetics (made with 🩷 by marskat)
 
 [![npm](https://img.shields.io/npm/v/@marskat/skeui)](https://www.npmjs.com/package/@marskat/skeui)
 [![GitHub](https://img.shields.io/badge/GitHub-marskat/skeui-181717?logo=github)](https://github.com/marskat/skeui)
@@ -250,7 +250,7 @@ Glassmorphism is the idea that "hey, wouldn't it look really cool if our interfa
 
 ## Why should I care?
 
-Glassmorphism can be tough to implement, especially for those who are not design-minded. And neumorphism is notoriously tricky to implement. You can't just slap a shadow on there and call it a day. Don't get me wrong - adding shadows can look good, but it doesn't _pop_ the way neumorphism does. With Glamo, the hard work is taken care of for you, and you have classy, expensive-looking components at your fingertips.
+Glassmorphism can be tough to implement, especially for those who are not design-minded. And neumorphism is notoriously tricky to implement. You can't just slap a shadow on there and call it a day. Don't get me wrong - adding shadows can look good, but it doesn't _pop_ the way neumorphism does. With SkeUi, the hard work is taken care of for you, and you have classy, expensive-looking components at your fingertips.
 
 ### References
 
