@@ -107,7 +107,7 @@ export const Card = ({
           {inset && (
             <div
               className={cn(
-                "before:skeui-nm-inside-shadow before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative",
+                "before:skeui-nm-inside-shadow before:skeui-block before:skeui-absolute before:skeui-inset-0 before:skeui-content-[''] skeui-inline-block skeui-size-full skeui-relative before:skeui-z-10 skeui-pointer-events-none",
                 `${
                   fullyRounded
                     ? "before:skeui-rounded-full"
@@ -117,7 +117,7 @@ export const Card = ({
             >
               <div
                 className={
-                  (cn("skeui-size-full"),
+                  (cn("skeui-size-full skeui-z-20 skeui-pointer-events-auto"),
                   `${fullyRounded ? "skeui-rounded-full" : "skeui-rounded"}`)
                 }
               >

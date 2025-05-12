@@ -13,5 +13,6 @@ export type {
   SlideNavButtons,
 } from "./components/Carousel/Carousel";
 export { NavBar } from "./components/NavBar";
+export { SearchBar } from "./components/SearchBar/SearchBar";
 export { Toggle } from "./components/Toggle";
 export type { ToggleClassnames, ToggleProps } from "./components/Toggle";

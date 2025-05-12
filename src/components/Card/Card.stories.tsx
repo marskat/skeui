@@ -6,7 +6,7 @@ const meta = {
   argTypes: {
     aesthetic: {
       control: {
-        type: "radio", // multi-select
+        type: "radio",
       },
       options: aestheticOptions,
       description: "Aesthetic style",

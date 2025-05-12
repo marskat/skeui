@@ -206,6 +206,43 @@ export default function Home() {
 }
 ```
 
+## Search Bar
+
+A skeuomorphic search bar.
+
+@property {Aesthetic} [aesthetic] - [Optional] Skeuomorphic styling. Choices are `glassmorphic` and `neumorphic`. Default is `glassmorphic`.
+
+@property {boolean} [isDarkMode] - [Optional] Adjust the shadow blending to lower the contrast for dark modes. Default is `false`.
+
+@property {boolean} [inset] - [Optional] Apply neumorphic inset. Default is `false`.
+
+@property {React.ReactNode} [icon] - [Optional] The icon which appears on the search bar. Default is `"🔍"`.
+
+@property {React.Dispatch<React.SetStateAction<boolean>>} [setSearch] - [Optional] The setState function to control the search result. No default behavior.
+
+@property {string} [placeholder] - [Optional] The placeholder text which appears in the search bar. Default is `"Search..."`.
+
+@property {SearchBarClassnames} [classNames] - [Optional] Class name overrides for parts of the search bar anatomy. Targets available are `input` and `icon`.
+
+This type extends all standard HTML `<div>` element attributes.
+
+@see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/div
+
+### Example Usage
+
+```typescript
+import { SearchBar } from "@marskat/skeui";
+import "@marskat/skeui/skeui-library.css";
+
+export default function Home() {
+  const [search, setSearch] = React.useState("");
+  useEffect(() => {
+    console.log(search);
+  }, [search]);
+  return <SearchBar setSearch={setSearch} />;
+}
+```
+
 ## Toggle
 
 A skeuomorphic toggle component.
