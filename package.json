@@ -92,7 +92,8 @@
       "@eslint/plugin-kit": ">=0.3.4",
       "brace-expansion": ">=2.0.2",
       "minimatch": ">=9.0.6",
-      "rollup": ">=4.59.0"
+      "rollup": ">=4.59.0",
+      "flatted": ">=3.4.0"
     }
   }
 }
